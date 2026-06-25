@@ -146,7 +146,6 @@ export default function ReportsPage() {
               <PreviewStat label="Producción Corrugadora" value={formatM2(summary.productionM2)} />
               <PreviewStat label="Producción resto de máquinas" value={formatGolpes(summary.productionGolpes)} />
               <PreviewStat label="OEE promedio" value={formatPct(summary.oeeAvg, 1)} />
-              <PreviewStat label="Scrap" value={formatPct(summary.scrapPct, 1)} />
               <PreviewStat label="Cumplimiento" value={formatPct(summary.compliancePct, 0)} />
             </div>
             {includeCharts && (

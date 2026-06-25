@@ -6,7 +6,6 @@ export type ReportType =
   | 'produccion_mensual'
   | 'por_maquina'
   | 'por_operador'
-  | 'scrap'
   | 'cumplimiento'
   | 'indicadores_gestion'
 
@@ -17,7 +16,6 @@ export const REPORT_TYPES: { value: ReportType; label: string }[] = [
   { value: 'produccion_mensual', label: 'Producción Mensual' },
   { value: 'por_maquina', label: 'Por Máquina' },
   { value: 'por_operador', label: 'Por Operador' },
-  { value: 'scrap', label: 'Scrap' },
   { value: 'cumplimiento', label: 'Cumplimiento de Objetivos' },
   { value: 'indicadores_gestion', label: 'Indicadores de Gestión' },
 ]
@@ -129,9 +127,7 @@ function buildReportHtml(data: ReportData): string {
         <td>${escapeHtml(formatQty(k.production, k.unit))}</td>
         <td>${escapeHtml(formatPct(k.availability, 1))}</td>
         <td>${escapeHtml(formatPct(k.performance, 1))}</td>
-        <td>${escapeHtml(formatPct(k.quality, 1))}</td>
         <td><strong>${escapeHtml(formatPct(k.oee, 1))}</strong></td>
-        <td>${escapeHtml(formatPct(k.scrapPct, 1))}</td>
       </tr>`
     })
     .join('')
@@ -149,7 +145,7 @@ function buildReportHtml(data: ReportData): string {
   .logo { width: 36px; height: 36px; border-radius: 6px; background: #1e3a8a; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px; }
   h1 { font-size: 18px; margin: 0; }
   .subtitle { font-size: 12px; color: #6b7280; margin: 2px 0 0; }
-  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 20px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
   .stat { border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; text-align: center; }
   .stat .value { font-size: 15px; font-weight: bold; }
   .stat .label { font-size: 10px; color: #6b7280; margin-top: 2px; }
@@ -173,13 +169,12 @@ function buildReportHtml(data: ReportData): string {
     <div class="stat"><div class="value">${escapeHtml(formatM2(summary.productionM2))}</div><div class="label">Producción Corrugadora</div></div>
     <div class="stat"><div class="value">${escapeHtml(formatGolpes(summary.productionGolpes))}</div><div class="label">Resto de máquinas</div></div>
     <div class="stat"><div class="value">${escapeHtml(formatPct(summary.oeeAvg, 1))}</div><div class="label">OEE promedio</div></div>
-    <div class="stat"><div class="value">${escapeHtml(formatPct(summary.scrapPct, 1))}</div><div class="label">Scrap</div></div>
     <div class="stat"><div class="value">${escapeHtml(formatPct(summary.compliancePct, 0))}</div><div class="label">Cumplimiento</div></div>
   </div>
 
   <table>
     <thead>
-      <tr><th>Máquina</th><th>Producción</th><th>Disponibilidad</th><th>Rendimiento</th><th>Calidad</th><th>OEE</th><th>Scrap</th></tr>
+      <tr><th>Máquina</th><th>Producción</th><th>Disponibilidad</th><th>Rendimiento</th><th>OEE</th></tr>
     </thead>
     <tbody>${rows}</tbody>
   </table>
@@ -214,7 +209,7 @@ function csvField(value: string): string {
 }
 
 function buildReportCsv(data: ReportData): string {
-  const header = ['Máquina', 'Producción', 'Unidad', 'Disponibilidad', 'Rendimiento', 'Calidad', 'OEE', 'Scrap']
+  const header = ['Máquina', 'Producción', 'Unidad', 'Disponibilidad', 'Rendimiento', 'OEE']
     .map(csvField)
     .join(CSV_DELIMITER)
   const rows = data.machines.map((m) => {
@@ -226,9 +221,7 @@ function buildReportCsv(data: ReportData): string {
       csvField(k.unit),
       formatPct(k.availability, 1),
       formatPct(k.performance, 1),
-      formatPct(k.quality, 1),
       formatPct(k.oee, 1),
-      formatPct(k.scrapPct, 1),
     ].join(CSV_DELIMITER)
   })
   return [header, ...rows].join('\r\n')

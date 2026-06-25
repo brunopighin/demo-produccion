@@ -43,14 +43,6 @@
   { "id": "obj-m6-oee", "machineId": "m6", "kpiType": "oee", "periodType": "daily", "targetValue": 0.80 },
   { "id": "obj-m7-oee", "machineId": "m7", "kpiType": "oee", "periodType": "daily", "targetValue": 0.78 },
 
-  { "id": "obj-m1-scrap", "machineId": "m1", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.04 },
-  { "id": "obj-m2-scrap", "machineId": "m2", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.05 },
-  { "id": "obj-m3-scrap", "machineId": "m3", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.05 },
-  { "id": "obj-m4-scrap", "machineId": "m4", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.06 },
-  { "id": "obj-m5-scrap", "machineId": "m5", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.06 },
-  { "id": "obj-m6-scrap", "machineId": "m6", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.05 },
-  { "id": "obj-m7-scrap", "machineId": "m7", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.05 },
-
   { "id": "obj-m1-comp", "machineId": "m1", "kpiType": "compliance", "periodType": "daily", "targetValue": 0.90 },
   { "id": "obj-m2-comp", "machineId": "m2", "kpiType": "compliance", "periodType": "daily", "targetValue": 0.90 },
   { "id": "obj-m3-comp", "machineId": "m3", "kpiType": "compliance", "periodType": "daily", "targetValue": 0.90 },

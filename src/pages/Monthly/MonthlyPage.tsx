@@ -20,12 +20,11 @@ function deltaPct(current: number, previous?: number): number | null {
 
 export default function MonthlyPage() {
   const monthly = useMonthlySummary()
-  const { year, month, productionM2, productionGolpes, oeeAvg, scrapPct, compliancePct, dailyBreakdown, machineKpis, previous, trend, operatorRanking } = monthly
+  const { year, month, productionM2, productionGolpes, oeeAvg, compliancePct, dailyBreakdown, machineKpis, previous, trend, operatorRanking } = monthly
 
   const prodM2Delta = deltaPct(productionM2, previous?.productionM2)
   const prodGolpesDelta = deltaPct(productionGolpes, previous?.productionGolpes)
   const oeeDelta = deltaPct(oeeAvg, previous?.oeeAvg)
-  const scrapDelta = deltaPct(scrapPct, previous?.scrapPct)
   const complianceDelta = deltaPct(compliancePct, previous?.compliancePct)
 
   const machineBarData = machineKpis.map((k) => ({
@@ -65,13 +64,6 @@ export default function MonthlyPage() {
           deltaPositive={oeeDelta !== null && oeeDelta >= 0}
         />
         <KpiCard
-          label="Scrap promedio"
-          value={formatPct(scrapPct, 1)}
-          status={statusFromThreshold(scrapPct, 0.04, 0.06, true)}
-          delta={scrapDelta !== null ? `${scrapDelta >= 0 ? '▲' : '▼'} ${Math.abs(scrapDelta).toFixed(1)}% vs mes anterior` : undefined}
-          deltaPositive={scrapDelta !== null && scrapDelta < 0}
-        />
-        <KpiCard
           label="Cumplimiento de objetivos"
           value={formatPct(compliancePct, 0)}
           status={statusFromThreshold(compliancePct, 0.9, 0.75)}
@@ -101,7 +93,6 @@ export default function MonthlyPage() {
                 <th className="pb-2">Máquina</th>
                 <th className="pb-2">Producción</th>
                 <th className="pb-2">OEE</th>
-                <th className="pb-2">Scrap</th>
                 <th className="pb-2">Setup</th>
                 <th className="pb-2">Estado</th>
               </tr>
@@ -112,7 +103,6 @@ export default function MonthlyPage() {
                   <td className="py-2 font-medium text-brand-900">{getMachineById(k.machineId)?.name}</td>
                   <td className="py-2">{formatQty(k.production, k.unit)}</td>
                   <td className="py-2">{formatPct(k.oee, 1)}</td>
-                  <td className="py-2">{formatPct(k.scrapPct, 1)}</td>
                   <td className="py-2">{formatMinutesAsHours(k.setupMinutes)}</td>
                   <td className="py-2">
                     <StatusBadge status={k.status} />

@@ -10,18 +10,8 @@ export function performanceOf(rec: ProductionRecord, machine: Machine): number {
   return actualRate / machine.nominalSpeed
 }
 
-export function qualityOf(rec: ProductionRecord): number {
-  if (rec.qtyProduced === 0) return 0
-  return rec.qtyGood / rec.qtyProduced
-}
-
 export function oeeOf(rec: ProductionRecord, machine: Machine): number {
-  return availabilityOf(rec) * performanceOf(rec, machine) * qualityOf(rec)
-}
-
-export function scrapPctOf(rec: ProductionRecord): number {
-  if (rec.qtyProduced === 0) return 0
-  return rec.qtyScrap / rec.qtyProduced
+  return availabilityOf(rec) * performanceOf(rec, machine)
 }
 
 /**

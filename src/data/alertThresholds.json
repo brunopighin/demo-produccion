@@ -5,13 +5,5 @@
   { "machineId": "m4", "kpiType": "oee", "greenMin": 0.72, "yellowMin": 0.60 },
   { "machineId": "m5", "kpiType": "oee", "greenMin": 0.72, "yellowMin": 0.60 },
   { "machineId": "m6", "kpiType": "oee", "greenMin": 0.78, "yellowMin": 0.65 },
-  { "machineId": "m7", "kpiType": "oee", "greenMin": 0.75, "yellowMin": 0.62 },
-
-  { "machineId": "m1", "kpiType": "scrap", "greenMin": 0.04, "yellowMin": 0.06 },
-  { "machineId": "m2", "kpiType": "scrap", "greenMin": 0.05, "yellowMin": 0.07 },
-  { "machineId": "m3", "kpiType": "scrap", "greenMin": 0.05, "yellowMin": 0.07 },
-  { "machineId": "m4", "kpiType": "scrap", "greenMin": 0.06, "yellowMin": 0.08 },
-  { "machineId": "m5", "kpiType": "scrap", "greenMin": 0.06, "yellowMin": 0.08 },
-  { "machineId": "m6", "kpiType": "scrap", "greenMin": 0.05, "yellowMin": 0.07 },
-  { "machineId": "m7", "kpiType": "scrap", "greenMin": 0.05, "yellowMin": 0.07 }
+  { "machineId": "m7", "kpiType": "oee", "greenMin": 0.75, "yellowMin": 0.62 }
 ]

@@ -32,7 +32,7 @@ export default function LoginPage() {
             Reportes productivos automatizados,<br /> sin planillas manuales.
           </h1>
           <p className="mt-4 max-w-md text-brand-200">
-            Producción, rendimiento, scrap y cumplimiento de objetivos de la planta corrugadora,
+            Producción, rendimiento y cumplimiento de objetivos de la planta corrugadora,
             consolidados a partir de Kiwi Plant y Kiwi Map.
           </p>
 

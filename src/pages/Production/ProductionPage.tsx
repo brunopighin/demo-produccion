@@ -7,7 +7,6 @@ import {
   getMachineById,
   getOperatorById,
   oeeOf,
-  scrapPctOf,
   shifts,
 } from '@/services/productionService'
 import Card from '@/components/ui/Card'
@@ -68,7 +67,6 @@ function DailyProduction() {
         operator: getOperatorById(r.operatorId)?.name ?? '',
         production: r.qtyProduced,
         unit: machine.unit,
-        scrapPct: scrapPctOf(r),
         setupMin: r.timeSetupMin,
         oee: oeeOf(r, machine),
       }
@@ -103,7 +101,6 @@ function DailyProduction() {
             <th className="pb-2">Turno</th>
             <th className="pb-2">Operador</th>
             <th className="pb-2">Producción</th>
-            <th className="pb-2">Scrap</th>
             <th className="pb-2">Setup</th>
             <th className="pb-2">OEE</th>
           </tr>
@@ -115,7 +112,6 @@ function DailyProduction() {
               <td className="py-2">{r.shift}</td>
               <td className="py-2">{r.operator}</td>
               <td className="py-2">{formatQty(r.production, r.unit)}</td>
-              <td className="py-2">{formatPct(r.scrapPct, 1)}</td>
               <td className="py-2">{r.setupMin} min</td>
               <td className="py-2">{formatPct(r.oee, 1)}</td>
             </tr>

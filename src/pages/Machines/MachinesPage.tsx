@@ -55,7 +55,6 @@ export default function MachinesPage() {
                   <dl className="mt-3 space-y-1.5 text-sm">
                     <Row label="Producción" value={formatQty(k.production, k.unit)} />
                     <Row label="Rendimiento" value={formatPct(k.performance, 0)} />
-                    <Row label="Scrap" value={formatPct(k.scrapPct, 1)} />
                     <Row label="Setup" value={formatMinutesAsHours(k.setupMinutes)} />
                   </dl>
                 </div>
@@ -103,11 +102,10 @@ function MachineDetail({ machineId }: { machineId: string }) {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         <KpiCard label="Producción" value={formatQty(todayKpis.production, todayKpis.unit)} status={todayKpis.status} />
         <KpiCard label="Disponibilidad" value={formatPct(todayKpis.availability, 0)} status={todayKpis.status} />
         <KpiCard label="Rendimiento" value={formatPct(todayKpis.performance, 0)} status={todayKpis.status} />
-        <KpiCard label="Calidad" value={formatPct(todayKpis.quality, 0)} status={todayKpis.status} />
         <KpiCard label="OEE" value={formatPct(todayKpis.oee, 1)} status={todayKpis.status} />
       </div>
 

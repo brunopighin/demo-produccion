@@ -10,7 +10,7 @@ import MachineProductionBar from '@/components/charts/MachineProductionBar'
 import OperatorEfficiencyChart from '@/components/charts/OperatorEfficiencyChart'
 import { formatPct, formatQty } from '@/utils/format'
 
-type SortKey = 'production' | 'efficiencyPct' | 'scrapPct' | 'setups'
+type SortKey = 'production' | 'efficiencyPct' | 'setups'
 
 export default function OperatorsPage() {
   const { ranking, operators } = useOperatorRanking(30)
@@ -77,7 +77,6 @@ export default function OperatorsPage() {
               <th className="pb-2">Máquina</th>
               <SortableHeader label="Producción" active={sortKey === 'production'} desc={sortDesc} onClick={() => toggleSort('production')} />
               <SortableHeader label="Eficiencia" active={sortKey === 'efficiencyPct'} desc={sortDesc} onClick={() => toggleSort('efficiencyPct')} />
-              <SortableHeader label="Scrap" active={sortKey === 'scrapPct'} desc={sortDesc} onClick={() => toggleSort('scrapPct')} />
               <SortableHeader label="Setups" active={sortKey === 'setups'} desc={sortDesc} onClick={() => toggleSort('setups')} />
               <th className="pb-2">Estado</th>
             </tr>
@@ -97,7 +96,6 @@ export default function OperatorsPage() {
                 <td className="py-2 text-status-idle">{operatorMachine(r.operatorId)}</td>
                 <td className="py-2">{formatQty(r.production, r.unit)}</td>
                 <td className="py-2">{formatPct(r.efficiencyPct, 0)}</td>
-                <td className="py-2">{formatPct(r.scrapPct, 1)}</td>
                 <td className="py-2">{r.setups}</td>
                 <td className="py-2">
                   <StatusBadge status={r.status} />
@@ -133,7 +131,6 @@ function OperatorProfile({ operatorId }: { operatorId: string }) {
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         <KpiCard label="Producción (30 días)" value={formatQty(kpis.production, kpis.unit)} status={kpis.status} />
         <KpiCard label="Eficiencia" value={formatPct(kpis.efficiencyPct, 0)} status={kpis.status} />
-        <KpiCard label="Scrap" value={formatPct(kpis.scrapPct, 1)} status={kpis.status} />
         <KpiCard label="Setups" value={String(kpis.setups)} status="sin_datos" />
       </div>
       <div className="mt-4">

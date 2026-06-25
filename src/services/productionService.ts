@@ -17,7 +17,7 @@ import type {
   KpiType,
   PeriodType,
 } from '@/types'
-import { availabilityOf, oeeOf, performanceOf, qualityOf, scrapPctOf, statusFromThreshold, sum } from './kpiCalculations'
+import { availabilityOf, oeeOf, performanceOf, statusFromThreshold, sum } from './kpiCalculations'
 
 export const machines = machinesJson as Machine[]
 export const operators = operatorsJson as Operator[]
@@ -75,14 +75,10 @@ export function aggregateMachineKpis(records: ProductionRecord[], machine: Machi
   const totalProductive = sum(records.map((r) => r.timeProductiveMin))
   const totalSetup = sum(records.map((r) => r.timeSetupMin))
   const totalProduced = sum(records.map((r) => r.qtyProduced))
-  const totalGood = sum(records.map((r) => r.qtyGood))
-  const totalScrap = sum(records.map((r) => r.qtyScrap))
 
   const availability = totalAvailable > 0 ? totalProductive / totalAvailable : 0
   const performance = totalProductive > 0 ? totalProduced / totalProductive / machine.nominalSpeed : 0
-  const quality = totalProduced > 0 ? totalGood / totalProduced : 0
-  const oee = availability * performance * quality
-  const scrapPct = totalProduced > 0 ? totalScrap / totalProduced : 0
+  const oee = availability * performance
 
   const threshold = getAlertThreshold(machine.id, 'oee')
   const status = records.length === 0
@@ -97,9 +93,7 @@ export function aggregateMachineKpis(records: ProductionRecord[], machine: Machi
     unit: machine.unit,
     availability,
     performance,
-    quality,
     oee,
-    scrapPct,
     setupMinutes: totalSetup,
     status,
   }
@@ -138,17 +132,14 @@ export function getDailySummary(date: string): DailySummary {
 
   const productionM2 = sum(dayRecords.filter((r) => getMachineById(r.machineId)?.unit === 'm2').map((r) => r.qtyProduced))
   const productionGolpes = sum(dayRecords.filter((r) => getMachineById(r.machineId)?.unit === 'golpes').map((r) => r.qtyProduced))
-  const totalProduced = sum(dayRecords.map((r) => r.qtyProduced))
-  const totalScrap = sum(dayRecords.map((r) => r.qtyScrap))
   const setupMinutes = sum(dayRecords.map((r) => r.timeSetupMin))
   const oeeAvg = machineKpis.length ? sum(machineKpis.map((k) => k.oee)) / machineKpis.length : 0
-  const scrapPct = totalProduced > 0 ? totalScrap / totalProduced : 0
   const compliancePct = compliancePctOf(dayRecords)
 
   const activeMachines = new Set(dayRecords.map((r) => r.machineId)).size
   const activeOperators = new Set(dayRecords.map((r) => r.operatorId)).size
 
-  return { date, productionM2, productionGolpes, oeeAvg, scrapPct, setupMinutes, compliancePct, activeMachines, activeOperators }
+  return { date, productionM2, productionGolpes, oeeAvg, setupMinutes, compliancePct, activeMachines, activeOperators }
 }
 
 export interface ShiftSummary {
@@ -204,13 +195,11 @@ export function getMonthlySummary(year: number, month: number) {
   const productionM2 = sum(dailyBreakdown.map((d) => d.productionM2))
   const productionGolpes = sum(dailyBreakdown.map((d) => d.productionGolpes))
   const oeeAvg = dailyBreakdown.length ? sum(dailyBreakdown.map((d) => d.oeeAvg)) / dailyBreakdown.length : 0
-  const totalProduced = sum(monthRecords.map((r) => r.qtyProduced))
-  const scrapPct = sum(monthRecords.map((r) => r.qtyScrap)) / Math.max(totalProduced, 1)
   const compliancePct = dailyBreakdown.length
     ? sum(dailyBreakdown.map((d) => d.compliancePct)) / dailyBreakdown.length
     : 0
 
-  return { year, month, productionM2, productionGolpes, oeeAvg, scrapPct, compliancePct, dailyBreakdown, machineKpis }
+  return { year, month, productionM2, productionGolpes, oeeAvg, compliancePct, dailyBreakdown, machineKpis }
 }
 
 export type MonthlySummary = ReturnType<typeof getMonthlySummary>
@@ -240,10 +229,8 @@ export function getOperatorRanking(from: string, to: string): OperatorKpis[] {
   const ranking: OperatorKpis[] = []
   for (const [operatorId, recs] of byOperator) {
     const production = sum(recs.map((r) => r.qtyProduced))
-    const scrap = sum(recs.map((r) => r.qtyScrap))
     const efficiencies = recs.map((r) => performanceOf(r, getMachineById(r.machineId)!))
     const efficiencyPct = efficiencies.length ? sum(efficiencies) / efficiencies.length : 0
-    const scrapPct = production > 0 ? scrap / production : 0
     const setups = recs.filter((r) => r.timeSetupMin > 0).length
     const unit = getMachineById(recs[0].machineId)?.unit ?? 'golpes'
 
@@ -252,7 +239,6 @@ export function getOperatorRanking(from: string, to: string): OperatorKpis[] {
       production,
       unit,
       efficiencyPct,
-      scrapPct,
       setups,
       status: statusFromThreshold(efficiencyPct, OPERATOR_EFFICIENCY_GREEN, OPERATOR_EFFICIENCY_YELLOW),
     })
@@ -265,7 +251,6 @@ export interface MachineTrendPoint {
   date: string
   oee: number
   production: number
-  scrapPct: number
 }
 
 export function getMachineTrend(machineId: string, daysBack: number): MachineTrendPoint[] {
@@ -273,7 +258,7 @@ export function getMachineTrend(machineId: string, daysBack: number): MachineTre
   return getAvailableDates(daysBack).map((date) => {
     const records = filterRecords({ date, machineId })
     const kpis = aggregateMachineKpis(records, machine)
-    return { date, oee: kpis.oee, production: kpis.production, scrapPct: kpis.scrapPct }
+    return { date, oee: kpis.oee, production: kpis.production }
   })
 }
 
@@ -337,4 +322,4 @@ export function getDowntimeLog(machineId: string, from: string, to: string, limi
   return rows.sort((a, b) => b.date.localeCompare(a.date)).slice(0, limit)
 }
 
-export { availabilityOf, oeeOf, performanceOf, qualityOf, scrapPctOf }
+export { availabilityOf, oeeOf, performanceOf }

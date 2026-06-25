@@ -31,7 +31,6 @@ export default function DashboardPage() {
   const productionM2Status = statusFromThreshold(summary.productionM2 / Math.max(corrugadoraTarget, 1), 0.95, 0.8)
   const productionGolpesStatus = statusFromThreshold(summary.productionGolpes / Math.max(golpesTarget, 1), 0.95, 0.8)
   const oeeStatus = statusFromThreshold(summary.oeeAvg, 0.78, 0.65)
-  const scrapStatus = statusFromThreshold(summary.scrapPct, 0.04, 0.06, true)
   const complianceStatus = statusFromThreshold(summary.compliancePct, 0.9, 0.75)
   const machinesRatio = summary.activeMachines / machines.length
   const machinesStatus = statusFromThreshold(machinesRatio, 1, 0.85)
@@ -83,12 +82,6 @@ export default function DashboardPage() {
           value={formatPct(summary.oeeAvg, 1)}
           status={oeeStatus}
           sparkline={weeklyTrend.map((d) => d.oeeAvg)}
-        />
-        <KpiCard
-          label="Scrap"
-          value={formatPct(summary.scrapPct, 1)}
-          status={scrapStatus}
-          sparkline={weeklyTrend.map((d) => d.scrapPct)}
         />
         <KpiCard label="Setup" value={formatMinutesAsHours(summary.setupMinutes)} status="sin_datos" />
         <KpiCard

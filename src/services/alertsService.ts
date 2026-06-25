@@ -1,6 +1,5 @@
 import type { AlertItem, AlertSeverity } from '@/types'
-import { getAlertThreshold, getAllMachinesKpisForDate, getMachineById } from './productionService'
-import { statusFromThreshold } from './kpiCalculations'
+import { getAllMachinesKpisForDate, getMachineById } from './productionService'
 
 function severityFromStatus(status: 'optimo' | 'atencion' | 'critico' | 'sin_datos'): AlertSeverity | null {
   if (status === 'critico') return 'critica'
@@ -28,21 +27,6 @@ export function getAlertsForDate(date: string): AlertItem[] {
       })
     }
 
-    const scrapThreshold = getAlertThreshold(machine.id, 'scrap')
-    if (scrapThreshold) {
-      const scrapStatus = statusFromThreshold(kpis.scrapPct, scrapThreshold.greenMin, scrapThreshold.yellowMin, true)
-      const scrapSeverity = severityFromStatus(scrapStatus)
-      if (scrapSeverity) {
-        alerts.push({
-          id: `alert-${date}-${machine.id}-scrap-${counter++}`,
-          severity: scrapSeverity,
-          machineId: machine.id,
-          message: `${machine.name} — Scrap en ${(kpis.scrapPct * 100).toFixed(1)}% (umbral: ${(scrapThreshold.yellowMin * 100).toFixed(0)}%)`,
-          createdAt: `${date}T18:05:00`,
-          read: false,
-        })
-      }
-    }
   }
 
   const best = [...machineKpis].sort((a, b) => b.oee - a.oee)[0]

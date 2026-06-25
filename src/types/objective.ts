@@ -1,4 +1,4 @@
-export type KpiType = 'oee' | 'production' | 'scrap' | 'compliance'
+export type KpiType = 'oee' | 'production' | 'compliance'
 export type PeriodType = 'daily' | 'monthly' | 'shift'
 
 export interface Objective {
