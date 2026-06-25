@@ -1,18 +1,26 @@
 import { useState } from 'react'
-import { buildFilename, simulateReportGeneration, type ReportFormat, type ReportType } from '@/services/reportsService'
+import { buildFilename, generateReport, type ReportData, type ReportFormat, type ReportType } from '@/services/reportsService'
 import { getLastAvailableDate } from '@/services/productionService'
 
 export function useReportsScreen() {
   const [generating, setGenerating] = useState(false)
   const [lastFile, setLastFile] = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
-  async function generate(reportType: ReportType, format: ReportFormat) {
+  async function generate(reportType: ReportType, format: ReportFormat, data: Omit<ReportData, 'reportType'>) {
     setGenerating(true)
     setLastFile(null)
-    await simulateReportGeneration()
-    setGenerating(false)
-    setLastFile(buildFilename(reportType, format, getLastAvailableDate()))
+    setError(null)
+    const filename = buildFilename(reportType, format, getLastAvailableDate())
+    try {
+      generateReport(format, filename, { reportType, ...data })
+      setLastFile(filename)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'No se pudo generar el reporte.')
+    } finally {
+      setGenerating(false)
+    }
   }
 
-  return { generating, lastFile, generate }
+  return { generating, lastFile, error, generate }
 }

@@ -2,12 +2,12 @@ import { useState } from 'react'
 import clsx from 'clsx'
 import { useReportsScreen } from '@/hooks/useReportsScreen'
 import { REPORT_TYPES, scheduledReports, type ReportFormat, type ReportType } from '@/services/reportsService'
-import { machines, getDailySummary, getLastAvailableDate } from '@/services/productionService'
+import { machines, getAllMachinesKpisForDate, getDailySummary, getLastAvailableDate } from '@/services/productionService'
 import Card from '@/components/ui/Card'
 import { formatDateLong, formatGolpes, formatM2, formatPct } from '@/utils/format'
 
 export default function ReportsPage() {
-  const { generating, lastFile, generate } = useReportsScreen()
+  const { generating, lastFile, error, generate } = useReportsScreen()
   const [reportType, setReportType] = useState<ReportType>('produccion_diaria')
   const [format, setFormat] = useState<ReportFormat>('pdf')
   const [includeCharts, setIncludeCharts] = useState(true)
@@ -102,7 +102,16 @@ export default function ReportsPage() {
             Vista previa
           </button>
           <button
-            onClick={() => generate(reportType, format)}
+            onClick={() => {
+              const selected = machines.filter((m) => selectedMachines.includes(m.id))
+              generate(reportType, format, {
+                date,
+                summary,
+                machines: selected,
+                machineKpis: getAllMachinesKpisForDate(date),
+                includeCharts,
+              })
+            }}
             disabled={generating}
             className={clsx(
               'rounded-lg px-4 py-2 text-sm font-semibold text-white',
@@ -111,9 +120,10 @@ export default function ReportsPage() {
           >
             {generating ? 'Generando...' : 'Generar y descargar ⬇'}
           </button>
-          {lastFile && !generating && (
+          {lastFile && !generating && !error && (
             <span className="text-sm font-medium text-status-good">✓ {lastFile} generado correctamente.</span>
           )}
+          {error && !generating && <span className="text-sm font-medium text-status-critical">{error}</span>}
         </div>
       </Card>
 
