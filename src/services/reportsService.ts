@@ -1,5 +1,5 @@
 import type { Machine, MachineKpis, DailySummary } from '@/types'
-import { formatDateLong, formatM2, formatGolpes, formatPct, formatQty } from '@/utils/format'
+import { formatDateLong, formatM2, formatGolpes, formatNumber, formatPct, formatQty } from '@/utils/format'
 
 export type ReportType =
   | 'produccion_diaria'
@@ -142,14 +142,32 @@ function openPrintableReport(data: ReportData): void {
   }
 }
 
+/** Excel con configuración regional es-AR usa "," como separador decimal, por lo que espera ";" entre columnas. */
+const CSV_DELIMITER = ';'
+
+function csvField(value: string): string {
+  return `"${value.replace(/"/g, '""')}"`
+}
+
 function buildReportCsv(data: ReportData): string {
-  const header = ['Máquina', 'Producción', 'Unidad', 'Disponibilidad', 'Rendimiento', 'Calidad', 'OEE', 'Scrap'].join(',')
+  const header = ['Máquina', 'Producción', 'Unidad', 'Disponibilidad', 'Rendimiento', 'Calidad', 'OEE', 'Scrap']
+    .map(csvField)
+    .join(CSV_DELIMITER)
   const rows = data.machines.map((m) => {
     const k = data.machineKpis.find((x) => x.machineId === m.id)
     if (!k) return ''
-    return [m.name, k.production, k.unit, k.availability, k.performance, k.quality, k.oee, k.scrapPct].join(',')
+    return [
+      csvField(m.name),
+      formatNumber(k.production, 0),
+      csvField(k.unit),
+      formatPct(k.availability, 1),
+      formatPct(k.performance, 1),
+      formatPct(k.quality, 1),
+      formatPct(k.oee, 1),
+      formatPct(k.scrapPct, 1),
+    ].join(CSV_DELIMITER)
   })
-  return [header, ...rows].join('\n')
+  return [header, ...rows].join('\r\n')
 }
 
 function downloadCsv(filename: string, csv: string): void {
