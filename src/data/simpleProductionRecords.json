@@ -1,0 +1,3782 @@
+[
+  {
+    "id": "sr-1",
+    "date": "2026-04-27",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 20,
+      "rotulos": 74
+    }
+  },
+  {
+    "id": "sr-2",
+    "date": "2026-04-27",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 37,
+      "rotulos": 0
+    }
+  },
+  {
+    "id": "sr-3",
+    "date": "2026-04-27",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 33,
+      "rotulos": 17
+    }
+  },
+  {
+    "id": "sr-4",
+    "date": "2026-04-27",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 403
+    }
+  },
+  {
+    "id": "sr-5",
+    "date": "2026-04-27",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 310
+    }
+  },
+  {
+    "id": "sr-6",
+    "date": "2026-04-27",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 316
+    }
+  },
+  {
+    "id": "sr-7",
+    "date": "2026-04-28",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 29,
+      "rotulos": 22
+    }
+  },
+  {
+    "id": "sr-8",
+    "date": "2026-04-28",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 22,
+      "rotulos": 65
+    }
+  },
+  {
+    "id": "sr-9",
+    "date": "2026-04-28",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 42,
+      "rotulos": 2
+    }
+  },
+  {
+    "id": "sr-10",
+    "date": "2026-04-28",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 319
+    }
+  },
+  {
+    "id": "sr-11",
+    "date": "2026-04-28",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 374
+    }
+  },
+  {
+    "id": "sr-12",
+    "date": "2026-04-28",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 283
+    }
+  },
+  {
+    "id": "sr-13",
+    "date": "2026-04-29",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 35,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-14",
+    "date": "2026-04-29",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 28,
+      "rotulos": 13
+    }
+  },
+  {
+    "id": "sr-15",
+    "date": "2026-04-29",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 24,
+      "rotulos": 67
+    }
+  },
+  {
+    "id": "sr-16",
+    "date": "2026-04-29",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 273
+    }
+  },
+  {
+    "id": "sr-17",
+    "date": "2026-04-29",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 323
+    }
+  },
+  {
+    "id": "sr-18",
+    "date": "2026-04-29",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 387
+    }
+  },
+  {
+    "id": "sr-19",
+    "date": "2026-04-30",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 24,
+      "rotulos": 58
+    }
+  },
+  {
+    "id": "sr-20",
+    "date": "2026-04-30",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 36,
+      "rotulos": 0
+    }
+  },
+  {
+    "id": "sr-21",
+    "date": "2026-04-30",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 25,
+      "rotulos": 12
+    }
+  },
+  {
+    "id": "sr-22",
+    "date": "2026-04-30",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 383
+    }
+  },
+  {
+    "id": "sr-23",
+    "date": "2026-04-30",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 291
+    }
+  },
+  {
+    "id": "sr-24",
+    "date": "2026-04-30",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 348
+    }
+  },
+  {
+    "id": "sr-25",
+    "date": "2026-05-01",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 27,
+      "rotulos": 21
+    }
+  },
+  {
+    "id": "sr-26",
+    "date": "2026-05-01",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 24,
+      "rotulos": 74
+    }
+  },
+  {
+    "id": "sr-27",
+    "date": "2026-05-01",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 43,
+      "rotulos": 0
+    }
+  },
+  {
+    "id": "sr-28",
+    "date": "2026-05-01",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 320
+    }
+  },
+  {
+    "id": "sr-29",
+    "date": "2026-05-01",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 386
+    }
+  },
+  {
+    "id": "sr-30",
+    "date": "2026-05-01",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 265
+    }
+  },
+  {
+    "id": "sr-31",
+    "date": "2026-05-02",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 46,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-32",
+    "date": "2026-05-02",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 35,
+      "rotulos": 15
+    }
+  },
+  {
+    "id": "sr-33",
+    "date": "2026-05-02",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 30,
+      "rotulos": 59
+    }
+  },
+  {
+    "id": "sr-34",
+    "date": "2026-05-02",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 292
+    }
+  },
+  {
+    "id": "sr-35",
+    "date": "2026-05-02",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 341
+    }
+  },
+  {
+    "id": "sr-36",
+    "date": "2026-05-02",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 401
+    }
+  },
+  {
+    "id": "sr-37",
+    "date": "2026-05-03",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 18,
+      "rotulos": 66
+    }
+  },
+  {
+    "id": "sr-38",
+    "date": "2026-05-03",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 45,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-39",
+    "date": "2026-05-03",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 36,
+      "rotulos": 13
+    }
+  },
+  {
+    "id": "sr-40",
+    "date": "2026-05-03",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 367
+    }
+  },
+  {
+    "id": "sr-41",
+    "date": "2026-05-03",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 274
+    }
+  },
+  {
+    "id": "sr-42",
+    "date": "2026-05-03",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 341
+    }
+  },
+  {
+    "id": "sr-43",
+    "date": "2026-05-04",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 38,
+      "rotulos": 16
+    }
+  },
+  {
+    "id": "sr-44",
+    "date": "2026-05-04",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 28,
+      "rotulos": 69
+    }
+  },
+  {
+    "id": "sr-45",
+    "date": "2026-05-04",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 44,
+      "rotulos": 0
+    }
+  },
+  {
+    "id": "sr-46",
+    "date": "2026-05-04",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 327
+    }
+  },
+  {
+    "id": "sr-47",
+    "date": "2026-05-04",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 407
+    }
+  },
+  {
+    "id": "sr-48",
+    "date": "2026-05-04",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 297
+    }
+  },
+  {
+    "id": "sr-49",
+    "date": "2026-05-05",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 37,
+      "rotulos": 5
+    }
+  },
+  {
+    "id": "sr-50",
+    "date": "2026-05-05",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 29,
+      "rotulos": 22
+    }
+  },
+  {
+    "id": "sr-51",
+    "date": "2026-05-05",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 21,
+      "rotulos": 74
+    }
+  },
+  {
+    "id": "sr-52",
+    "date": "2026-05-05",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 290
+    }
+  },
+  {
+    "id": "sr-53",
+    "date": "2026-05-05",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 349
+    }
+  },
+  {
+    "id": "sr-54",
+    "date": "2026-05-05",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 376
+    }
+  },
+  {
+    "id": "sr-55",
+    "date": "2026-05-06",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 22,
+      "rotulos": 54
+    }
+  },
+  {
+    "id": "sr-56",
+    "date": "2026-05-06",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 39,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-57",
+    "date": "2026-05-06",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 35,
+      "rotulos": 19
+    }
+  },
+  {
+    "id": "sr-58",
+    "date": "2026-05-06",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 365
+    }
+  },
+  {
+    "id": "sr-59",
+    "date": "2026-05-06",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 275
+    }
+  },
+  {
+    "id": "sr-60",
+    "date": "2026-05-06",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 341
+    }
+  },
+  {
+    "id": "sr-61",
+    "date": "2026-05-07",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 28,
+      "rotulos": 20
+    }
+  },
+  {
+    "id": "sr-62",
+    "date": "2026-05-07",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 21,
+      "rotulos": 64
+    }
+  },
+  {
+    "id": "sr-63",
+    "date": "2026-05-07",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 43,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-64",
+    "date": "2026-05-07",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 318
+    }
+  },
+  {
+    "id": "sr-65",
+    "date": "2026-05-07",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 400
+    }
+  },
+  {
+    "id": "sr-66",
+    "date": "2026-05-07",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 276
+    }
+  },
+  {
+    "id": "sr-67",
+    "date": "2026-05-08",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 41,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-68",
+    "date": "2026-05-08",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 36,
+      "rotulos": 14
+    }
+  },
+  {
+    "id": "sr-69",
+    "date": "2026-05-08",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 24,
+      "rotulos": 62
+    }
+  },
+  {
+    "id": "sr-70",
+    "date": "2026-05-08",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 316
+    }
+  },
+  {
+    "id": "sr-71",
+    "date": "2026-05-08",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 340
+    }
+  },
+  {
+    "id": "sr-72",
+    "date": "2026-05-08",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 395
+    }
+  },
+  {
+    "id": "sr-73",
+    "date": "2026-05-09",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 27,
+      "rotulos": 54
+    }
+  },
+  {
+    "id": "sr-74",
+    "date": "2026-05-09",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 45,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-75",
+    "date": "2026-05-09",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 33,
+      "rotulos": 18
+    }
+  },
+  {
+    "id": "sr-76",
+    "date": "2026-05-09",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 377
+    }
+  },
+  {
+    "id": "sr-77",
+    "date": "2026-05-09",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 319
+    }
+  },
+  {
+    "id": "sr-78",
+    "date": "2026-05-09",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 354
+    }
+  },
+  {
+    "id": "sr-79",
+    "date": "2026-05-10",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 25,
+      "rotulos": 12
+    }
+  },
+  {
+    "id": "sr-80",
+    "date": "2026-05-10",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 27,
+      "rotulos": 51
+    }
+  },
+  {
+    "id": "sr-81",
+    "date": "2026-05-10",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 45,
+      "rotulos": 5
+    }
+  },
+  {
+    "id": "sr-82",
+    "date": "2026-05-10",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 324
+    }
+  },
+  {
+    "id": "sr-83",
+    "date": "2026-05-10",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 361
+    }
+  },
+  {
+    "id": "sr-84",
+    "date": "2026-05-10",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 307
+    }
+  },
+  {
+    "id": "sr-85",
+    "date": "2026-05-11",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 37,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-86",
+    "date": "2026-05-11",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 29,
+      "rotulos": 12
+    }
+  },
+  {
+    "id": "sr-87",
+    "date": "2026-05-11",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 21,
+      "rotulos": 56
+    }
+  },
+  {
+    "id": "sr-88",
+    "date": "2026-05-11",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 279
+    }
+  },
+  {
+    "id": "sr-89",
+    "date": "2026-05-11",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 330
+    }
+  },
+  {
+    "id": "sr-90",
+    "date": "2026-05-11",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 395
+    }
+  },
+  {
+    "id": "sr-91",
+    "date": "2026-05-12",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 29,
+      "rotulos": 59
+    }
+  },
+  {
+    "id": "sr-92",
+    "date": "2026-05-12",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 47,
+      "rotulos": 4
+    }
+  },
+  {
+    "id": "sr-93",
+    "date": "2026-05-12",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 29,
+      "rotulos": 22
+    }
+  },
+  {
+    "id": "sr-94",
+    "date": "2026-05-12",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 404
+    }
+  },
+  {
+    "id": "sr-95",
+    "date": "2026-05-12",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 266
+    }
+  },
+  {
+    "id": "sr-96",
+    "date": "2026-05-12",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 359
+    }
+  },
+  {
+    "id": "sr-97",
+    "date": "2026-05-13",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 35,
+      "rotulos": 22
+    }
+  },
+  {
+    "id": "sr-98",
+    "date": "2026-05-13",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 25,
+      "rotulos": 70
+    }
+  },
+  {
+    "id": "sr-99",
+    "date": "2026-05-13",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 49,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-100",
+    "date": "2026-05-13",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 323
+    }
+  },
+  {
+    "id": "sr-101",
+    "date": "2026-05-13",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 385
+    }
+  },
+  {
+    "id": "sr-102",
+    "date": "2026-05-13",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 279
+    }
+  },
+  {
+    "id": "sr-103",
+    "date": "2026-05-14",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 41,
+      "rotulos": 2
+    }
+  },
+  {
+    "id": "sr-104",
+    "date": "2026-05-14",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 38,
+      "rotulos": 11
+    }
+  },
+  {
+    "id": "sr-105",
+    "date": "2026-05-14",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 18,
+      "rotulos": 72
+    }
+  },
+  {
+    "id": "sr-106",
+    "date": "2026-05-14",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 280
+    }
+  },
+  {
+    "id": "sr-107",
+    "date": "2026-05-14",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 326
+    }
+  },
+  {
+    "id": "sr-108",
+    "date": "2026-05-14",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 366
+    }
+  },
+  {
+    "id": "sr-109",
+    "date": "2026-05-15",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 30,
+      "rotulos": 52
+    }
+  },
+  {
+    "id": "sr-110",
+    "date": "2026-05-15",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 37,
+      "rotulos": 0
+    }
+  },
+  {
+    "id": "sr-111",
+    "date": "2026-05-15",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 26,
+      "rotulos": 10
+    }
+  },
+  {
+    "id": "sr-112",
+    "date": "2026-05-15",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 408
+    }
+  },
+  {
+    "id": "sr-113",
+    "date": "2026-05-15",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 291
+    }
+  },
+  {
+    "id": "sr-114",
+    "date": "2026-05-15",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 355
+    }
+  },
+  {
+    "id": "sr-115",
+    "date": "2026-05-16",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 31,
+      "rotulos": 14
+    }
+  },
+  {
+    "id": "sr-116",
+    "date": "2026-05-16",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 26,
+      "rotulos": 67
+    }
+  },
+  {
+    "id": "sr-117",
+    "date": "2026-05-16",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 42,
+      "rotulos": 2
+    }
+  },
+  {
+    "id": "sr-118",
+    "date": "2026-05-16",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 341
+    }
+  },
+  {
+    "id": "sr-119",
+    "date": "2026-05-16",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 369
+    }
+  },
+  {
+    "id": "sr-120",
+    "date": "2026-05-16",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 314
+    }
+  },
+  {
+    "id": "sr-121",
+    "date": "2026-05-17",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 40,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-122",
+    "date": "2026-05-17",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 28,
+      "rotulos": 24
+    }
+  },
+  {
+    "id": "sr-123",
+    "date": "2026-05-17",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 21,
+      "rotulos": 69
+    }
+  },
+  {
+    "id": "sr-124",
+    "date": "2026-05-17",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 317
+    }
+  },
+  {
+    "id": "sr-125",
+    "date": "2026-05-17",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 340
+    }
+  },
+  {
+    "id": "sr-126",
+    "date": "2026-05-17",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 384
+    }
+  },
+  {
+    "id": "sr-127",
+    "date": "2026-05-18",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 24,
+      "rotulos": 56
+    }
+  },
+  {
+    "id": "sr-128",
+    "date": "2026-05-18",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 36,
+      "rotulos": 2
+    }
+  },
+  {
+    "id": "sr-129",
+    "date": "2026-05-18",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 33,
+      "rotulos": 23
+    }
+  },
+  {
+    "id": "sr-130",
+    "date": "2026-05-18",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 393
+    }
+  },
+  {
+    "id": "sr-131",
+    "date": "2026-05-18",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 286
+    }
+  },
+  {
+    "id": "sr-132",
+    "date": "2026-05-18",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 338
+    }
+  },
+  {
+    "id": "sr-133",
+    "date": "2026-05-19",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 27,
+      "rotulos": 24
+    }
+  },
+  {
+    "id": "sr-134",
+    "date": "2026-05-19",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 29,
+      "rotulos": 69
+    }
+  },
+  {
+    "id": "sr-135",
+    "date": "2026-05-19",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 36,
+      "rotulos": 2
+    }
+  },
+  {
+    "id": "sr-136",
+    "date": "2026-05-19",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 358
+    }
+  },
+  {
+    "id": "sr-137",
+    "date": "2026-05-19",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 379
+    }
+  },
+  {
+    "id": "sr-138",
+    "date": "2026-05-19",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 276
+    }
+  },
+  {
+    "id": "sr-139",
+    "date": "2026-05-20",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 38,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-140",
+    "date": "2026-05-20",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 32,
+      "rotulos": 24
+    }
+  },
+  {
+    "id": "sr-141",
+    "date": "2026-05-20",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 19,
+      "rotulos": 58
+    }
+  },
+  {
+    "id": "sr-142",
+    "date": "2026-05-20",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 314
+    }
+  },
+  {
+    "id": "sr-143",
+    "date": "2026-05-20",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 341
+    }
+  },
+  {
+    "id": "sr-144",
+    "date": "2026-05-20",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 401
+    }
+  },
+  {
+    "id": "sr-145",
+    "date": "2026-05-21",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 24,
+      "rotulos": 73
+    }
+  },
+  {
+    "id": "sr-146",
+    "date": "2026-05-21",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 42,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-147",
+    "date": "2026-05-21",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 34,
+      "rotulos": 18
+    }
+  },
+  {
+    "id": "sr-148",
+    "date": "2026-05-21",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 375
+    }
+  },
+  {
+    "id": "sr-149",
+    "date": "2026-05-21",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 295
+    }
+  },
+  {
+    "id": "sr-150",
+    "date": "2026-05-21",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 332
+    }
+  },
+  {
+    "id": "sr-151",
+    "date": "2026-05-22",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 26,
+      "rotulos": 23
+    }
+  },
+  {
+    "id": "sr-152",
+    "date": "2026-05-22",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 27,
+      "rotulos": 64
+    }
+  },
+  {
+    "id": "sr-153",
+    "date": "2026-05-22",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 39,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-154",
+    "date": "2026-05-22",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 342
+    }
+  },
+  {
+    "id": "sr-155",
+    "date": "2026-05-22",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 379
+    }
+  },
+  {
+    "id": "sr-156",
+    "date": "2026-05-22",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 319
+    }
+  },
+  {
+    "id": "sr-157",
+    "date": "2026-05-23",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 42,
+      "rotulos": 4
+    }
+  },
+  {
+    "id": "sr-158",
+    "date": "2026-05-23",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 35,
+      "rotulos": 13
+    }
+  },
+  {
+    "id": "sr-159",
+    "date": "2026-05-23",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 22,
+      "rotulos": 58
+    }
+  },
+  {
+    "id": "sr-160",
+    "date": "2026-05-23",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 307
+    }
+  },
+  {
+    "id": "sr-161",
+    "date": "2026-05-23",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 311
+    }
+  },
+  {
+    "id": "sr-162",
+    "date": "2026-05-23",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 376
+    }
+  },
+  {
+    "id": "sr-163",
+    "date": "2026-05-24",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 19,
+      "rotulos": 66
+    }
+  },
+  {
+    "id": "sr-164",
+    "date": "2026-05-24",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 47,
+      "rotulos": 5
+    }
+  },
+  {
+    "id": "sr-165",
+    "date": "2026-05-24",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 32,
+      "rotulos": 14
+    }
+  },
+  {
+    "id": "sr-166",
+    "date": "2026-05-24",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 366
+    }
+  },
+  {
+    "id": "sr-167",
+    "date": "2026-05-24",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 293
+    }
+  },
+  {
+    "id": "sr-168",
+    "date": "2026-05-24",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 349
+    }
+  },
+  {
+    "id": "sr-169",
+    "date": "2026-05-25",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 27,
+      "rotulos": 23
+    }
+  },
+  {
+    "id": "sr-170",
+    "date": "2026-05-25",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 25,
+      "rotulos": 68
+    }
+  },
+  {
+    "id": "sr-171",
+    "date": "2026-05-25",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 38,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-172",
+    "date": "2026-05-25",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 308
+    }
+  },
+  {
+    "id": "sr-173",
+    "date": "2026-05-25",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 367
+    }
+  },
+  {
+    "id": "sr-174",
+    "date": "2026-05-25",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 313
+    }
+  },
+  {
+    "id": "sr-175",
+    "date": "2026-05-26",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 40,
+      "rotulos": 2
+    }
+  },
+  {
+    "id": "sr-176",
+    "date": "2026-05-26",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 32,
+      "rotulos": 21
+    }
+  },
+  {
+    "id": "sr-177",
+    "date": "2026-05-26",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 27,
+      "rotulos": 54
+    }
+  },
+  {
+    "id": "sr-178",
+    "date": "2026-05-26",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 283
+    }
+  },
+  {
+    "id": "sr-179",
+    "date": "2026-05-26",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 334
+    }
+  },
+  {
+    "id": "sr-180",
+    "date": "2026-05-26",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 373
+    }
+  },
+  {
+    "id": "sr-181",
+    "date": "2026-05-27",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 19,
+      "rotulos": 66
+    }
+  },
+  {
+    "id": "sr-182",
+    "date": "2026-05-27",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 44,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-183",
+    "date": "2026-05-27",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 26,
+      "rotulos": 18
+    }
+  },
+  {
+    "id": "sr-184",
+    "date": "2026-05-27",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 388
+    }
+  },
+  {
+    "id": "sr-185",
+    "date": "2026-05-27",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 310
+    }
+  },
+  {
+    "id": "sr-186",
+    "date": "2026-05-27",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 307
+    }
+  },
+  {
+    "id": "sr-187",
+    "date": "2026-05-28",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 37,
+      "rotulos": 14
+    }
+  },
+  {
+    "id": "sr-188",
+    "date": "2026-05-28",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 21,
+      "rotulos": 58
+    }
+  },
+  {
+    "id": "sr-189",
+    "date": "2026-05-28",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 48,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-190",
+    "date": "2026-05-28",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 302
+    }
+  },
+  {
+    "id": "sr-191",
+    "date": "2026-05-28",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 406
+    }
+  },
+  {
+    "id": "sr-192",
+    "date": "2026-05-28",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 315
+    }
+  },
+  {
+    "id": "sr-193",
+    "date": "2026-05-29",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 48,
+      "rotulos": 5
+    }
+  },
+  {
+    "id": "sr-194",
+    "date": "2026-05-29",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 27,
+      "rotulos": 13
+    }
+  },
+  {
+    "id": "sr-195",
+    "date": "2026-05-29",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 21,
+      "rotulos": 63
+    }
+  },
+  {
+    "id": "sr-196",
+    "date": "2026-05-29",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 294
+    }
+  },
+  {
+    "id": "sr-197",
+    "date": "2026-05-29",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 356
+    }
+  },
+  {
+    "id": "sr-198",
+    "date": "2026-05-29",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 372
+    }
+  },
+  {
+    "id": "sr-199",
+    "date": "2026-05-30",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 29,
+      "rotulos": 63
+    }
+  },
+  {
+    "id": "sr-200",
+    "date": "2026-05-30",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 36,
+      "rotulos": 0
+    }
+  },
+  {
+    "id": "sr-201",
+    "date": "2026-05-30",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 33,
+      "rotulos": 12
+    }
+  },
+  {
+    "id": "sr-202",
+    "date": "2026-05-30",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 368
+    }
+  },
+  {
+    "id": "sr-203",
+    "date": "2026-05-30",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 316
+    }
+  },
+  {
+    "id": "sr-204",
+    "date": "2026-05-30",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 324
+    }
+  },
+  {
+    "id": "sr-205",
+    "date": "2026-05-31",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 27,
+      "rotulos": 20
+    }
+  },
+  {
+    "id": "sr-206",
+    "date": "2026-05-31",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 20,
+      "rotulos": 51
+    }
+  },
+  {
+    "id": "sr-207",
+    "date": "2026-05-31",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 47,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-208",
+    "date": "2026-05-31",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 333
+    }
+  },
+  {
+    "id": "sr-209",
+    "date": "2026-05-31",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 382
+    }
+  },
+  {
+    "id": "sr-210",
+    "date": "2026-05-31",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 276
+    }
+  },
+  {
+    "id": "sr-211",
+    "date": "2026-06-01",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 40,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-212",
+    "date": "2026-06-01",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 30,
+      "rotulos": 19
+    }
+  },
+  {
+    "id": "sr-213",
+    "date": "2026-06-01",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 21,
+      "rotulos": 65
+    }
+  },
+  {
+    "id": "sr-214",
+    "date": "2026-06-01",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 317
+    }
+  },
+  {
+    "id": "sr-215",
+    "date": "2026-06-01",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 321
+    }
+  },
+  {
+    "id": "sr-216",
+    "date": "2026-06-01",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 408
+    }
+  },
+  {
+    "id": "sr-217",
+    "date": "2026-06-02",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 30,
+      "rotulos": 65
+    }
+  },
+  {
+    "id": "sr-218",
+    "date": "2026-06-02",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 44,
+      "rotulos": 4
+    }
+  },
+  {
+    "id": "sr-219",
+    "date": "2026-06-02",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 27,
+      "rotulos": 15
+    }
+  },
+  {
+    "id": "sr-220",
+    "date": "2026-06-02",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 401
+    }
+  },
+  {
+    "id": "sr-221",
+    "date": "2026-06-02",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 305
+    }
+  },
+  {
+    "id": "sr-222",
+    "date": "2026-06-02",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 316
+    }
+  },
+  {
+    "id": "sr-223",
+    "date": "2026-06-03",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 26,
+      "rotulos": 13
+    }
+  },
+  {
+    "id": "sr-224",
+    "date": "2026-06-03",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 21,
+      "rotulos": 64
+    }
+  },
+  {
+    "id": "sr-225",
+    "date": "2026-06-03",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 47,
+      "rotulos": 4
+    }
+  },
+  {
+    "id": "sr-226",
+    "date": "2026-06-03",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 330
+    }
+  },
+  {
+    "id": "sr-227",
+    "date": "2026-06-03",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 390
+    }
+  },
+  {
+    "id": "sr-228",
+    "date": "2026-06-03",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 309
+    }
+  },
+  {
+    "id": "sr-229",
+    "date": "2026-06-04",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 46,
+      "rotulos": 4
+    }
+  },
+  {
+    "id": "sr-230",
+    "date": "2026-06-04",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 35,
+      "rotulos": 16
+    }
+  },
+  {
+    "id": "sr-231",
+    "date": "2026-06-04",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 21,
+      "rotulos": 57
+    }
+  },
+  {
+    "id": "sr-232",
+    "date": "2026-06-04",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 273
+    }
+  },
+  {
+    "id": "sr-233",
+    "date": "2026-06-04",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 307
+    }
+  },
+  {
+    "id": "sr-234",
+    "date": "2026-06-04",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 409
+    }
+  },
+  {
+    "id": "sr-235",
+    "date": "2026-06-05",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 27,
+      "rotulos": 71
+    }
+  },
+  {
+    "id": "sr-236",
+    "date": "2026-06-05",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 42,
+      "rotulos": 2
+    }
+  },
+  {
+    "id": "sr-237",
+    "date": "2026-06-05",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 28,
+      "rotulos": 13
+    }
+  },
+  {
+    "id": "sr-238",
+    "date": "2026-06-05",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 363
+    }
+  },
+  {
+    "id": "sr-239",
+    "date": "2026-06-05",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 300
+    }
+  },
+  {
+    "id": "sr-240",
+    "date": "2026-06-05",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 336
+    }
+  },
+  {
+    "id": "sr-241",
+    "date": "2026-06-06",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 33,
+      "rotulos": 20
+    }
+  },
+  {
+    "id": "sr-242",
+    "date": "2026-06-06",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 22,
+      "rotulos": 74
+    }
+  },
+  {
+    "id": "sr-243",
+    "date": "2026-06-06",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 48,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-244",
+    "date": "2026-06-06",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 358
+    }
+  },
+  {
+    "id": "sr-245",
+    "date": "2026-06-06",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 371
+    }
+  },
+  {
+    "id": "sr-246",
+    "date": "2026-06-06",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 270
+    }
+  },
+  {
+    "id": "sr-247",
+    "date": "2026-06-07",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 42,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-248",
+    "date": "2026-06-07",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 37,
+      "rotulos": 13
+    }
+  },
+  {
+    "id": "sr-249",
+    "date": "2026-06-07",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 27,
+      "rotulos": 53
+    }
+  },
+  {
+    "id": "sr-250",
+    "date": "2026-06-07",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 319
+    }
+  },
+  {
+    "id": "sr-251",
+    "date": "2026-06-07",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 305
+    }
+  },
+  {
+    "id": "sr-252",
+    "date": "2026-06-07",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 391
+    }
+  },
+  {
+    "id": "sr-253",
+    "date": "2026-06-08",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 18,
+      "rotulos": 70
+    }
+  },
+  {
+    "id": "sr-254",
+    "date": "2026-06-08",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 45,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-255",
+    "date": "2026-06-08",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 36,
+      "rotulos": 14
+    }
+  },
+  {
+    "id": "sr-256",
+    "date": "2026-06-08",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 389
+    }
+  },
+  {
+    "id": "sr-257",
+    "date": "2026-06-08",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 277
+    }
+  },
+  {
+    "id": "sr-258",
+    "date": "2026-06-08",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 309
+    }
+  },
+  {
+    "id": "sr-259",
+    "date": "2026-06-09",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 29,
+      "rotulos": 24
+    }
+  },
+  {
+    "id": "sr-260",
+    "date": "2026-06-09",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 20,
+      "rotulos": 59
+    }
+  },
+  {
+    "id": "sr-261",
+    "date": "2026-06-09",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 49,
+      "rotulos": 5
+    }
+  },
+  {
+    "id": "sr-262",
+    "date": "2026-06-09",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 313
+    }
+  },
+  {
+    "id": "sr-263",
+    "date": "2026-06-09",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 401
+    }
+  },
+  {
+    "id": "sr-264",
+    "date": "2026-06-09",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 304
+    }
+  },
+  {
+    "id": "sr-265",
+    "date": "2026-06-10",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 49,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-266",
+    "date": "2026-06-10",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 30,
+      "rotulos": 20
+    }
+  },
+  {
+    "id": "sr-267",
+    "date": "2026-06-10",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 29,
+      "rotulos": 54
+    }
+  },
+  {
+    "id": "sr-268",
+    "date": "2026-06-10",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 266
+    }
+  },
+  {
+    "id": "sr-269",
+    "date": "2026-06-10",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 356
+    }
+  },
+  {
+    "id": "sr-270",
+    "date": "2026-06-10",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 393
+    }
+  },
+  {
+    "id": "sr-271",
+    "date": "2026-06-11",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 29,
+      "rotulos": 55
+    }
+  },
+  {
+    "id": "sr-272",
+    "date": "2026-06-11",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 37,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-273",
+    "date": "2026-06-11",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 26,
+      "rotulos": 11
+    }
+  },
+  {
+    "id": "sr-274",
+    "date": "2026-06-11",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 385
+    }
+  },
+  {
+    "id": "sr-275",
+    "date": "2026-06-11",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 299
+    }
+  },
+  {
+    "id": "sr-276",
+    "date": "2026-06-11",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 328
+    }
+  },
+  {
+    "id": "sr-277",
+    "date": "2026-06-12",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 37,
+      "rotulos": 21
+    }
+  },
+  {
+    "id": "sr-278",
+    "date": "2026-06-12",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 26,
+      "rotulos": 72
+    }
+  },
+  {
+    "id": "sr-279",
+    "date": "2026-06-12",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 41,
+      "rotulos": 5
+    }
+  },
+  {
+    "id": "sr-280",
+    "date": "2026-06-12",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 330
+    }
+  },
+  {
+    "id": "sr-281",
+    "date": "2026-06-12",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 381
+    }
+  },
+  {
+    "id": "sr-282",
+    "date": "2026-06-12",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 305
+    }
+  },
+  {
+    "id": "sr-283",
+    "date": "2026-06-13",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 43,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-284",
+    "date": "2026-06-13",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 29,
+      "rotulos": 17
+    }
+  },
+  {
+    "id": "sr-285",
+    "date": "2026-06-13",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 25,
+      "rotulos": 55
+    }
+  },
+  {
+    "id": "sr-286",
+    "date": "2026-06-13",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 316
+    }
+  },
+  {
+    "id": "sr-287",
+    "date": "2026-06-13",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 346
+    }
+  },
+  {
+    "id": "sr-288",
+    "date": "2026-06-13",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 392
+    }
+  },
+  {
+    "id": "sr-289",
+    "date": "2026-06-14",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 23,
+      "rotulos": 52
+    }
+  },
+  {
+    "id": "sr-290",
+    "date": "2026-06-14",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 41,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-291",
+    "date": "2026-06-14",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 27,
+      "rotulos": 15
+    }
+  },
+  {
+    "id": "sr-292",
+    "date": "2026-06-14",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 388
+    }
+  },
+  {
+    "id": "sr-293",
+    "date": "2026-06-14",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 265
+    }
+  },
+  {
+    "id": "sr-294",
+    "date": "2026-06-14",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 354
+    }
+  },
+  {
+    "id": "sr-295",
+    "date": "2026-06-15",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 37,
+      "rotulos": 10
+    }
+  },
+  {
+    "id": "sr-296",
+    "date": "2026-06-15",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 27,
+      "rotulos": 56
+    }
+  },
+  {
+    "id": "sr-297",
+    "date": "2026-06-15",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 47,
+      "rotulos": 4
+    }
+  },
+  {
+    "id": "sr-298",
+    "date": "2026-06-15",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 315
+    }
+  },
+  {
+    "id": "sr-299",
+    "date": "2026-06-15",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 393
+    }
+  },
+  {
+    "id": "sr-300",
+    "date": "2026-06-15",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 297
+    }
+  },
+  {
+    "id": "sr-301",
+    "date": "2026-06-16",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 42,
+      "rotulos": 0
+    }
+  },
+  {
+    "id": "sr-302",
+    "date": "2026-06-16",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 26,
+      "rotulos": 17
+    }
+  },
+  {
+    "id": "sr-303",
+    "date": "2026-06-16",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 19,
+      "rotulos": 57
+    }
+  },
+  {
+    "id": "sr-304",
+    "date": "2026-06-16",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 314
+    }
+  },
+  {
+    "id": "sr-305",
+    "date": "2026-06-16",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 356
+    }
+  },
+  {
+    "id": "sr-306",
+    "date": "2026-06-16",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 391
+    }
+  },
+  {
+    "id": "sr-307",
+    "date": "2026-06-17",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 23,
+      "rotulos": 65
+    }
+  },
+  {
+    "id": "sr-308",
+    "date": "2026-06-17",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 37,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-309",
+    "date": "2026-06-17",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 31,
+      "rotulos": 21
+    }
+  },
+  {
+    "id": "sr-310",
+    "date": "2026-06-17",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 384
+    }
+  },
+  {
+    "id": "sr-311",
+    "date": "2026-06-17",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 310
+    }
+  },
+  {
+    "id": "sr-312",
+    "date": "2026-06-17",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 331
+    }
+  },
+  {
+    "id": "sr-313",
+    "date": "2026-06-18",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 29,
+      "rotulos": 24
+    }
+  },
+  {
+    "id": "sr-314",
+    "date": "2026-06-18",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 19,
+      "rotulos": 59
+    }
+  },
+  {
+    "id": "sr-315",
+    "date": "2026-06-18",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 42,
+      "rotulos": 1
+    }
+  },
+  {
+    "id": "sr-316",
+    "date": "2026-06-18",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 330
+    }
+  },
+  {
+    "id": "sr-317",
+    "date": "2026-06-18",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 367
+    }
+  },
+  {
+    "id": "sr-318",
+    "date": "2026-06-18",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 273
+    }
+  },
+  {
+    "id": "sr-319",
+    "date": "2026-06-19",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 42,
+      "rotulos": 2
+    }
+  },
+  {
+    "id": "sr-320",
+    "date": "2026-06-19",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 28,
+      "rotulos": 20
+    }
+  },
+  {
+    "id": "sr-321",
+    "date": "2026-06-19",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 26,
+      "rotulos": 68
+    }
+  },
+  {
+    "id": "sr-322",
+    "date": "2026-06-19",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 264
+    }
+  },
+  {
+    "id": "sr-323",
+    "date": "2026-06-19",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 313
+    }
+  },
+  {
+    "id": "sr-324",
+    "date": "2026-06-19",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 369
+    }
+  },
+  {
+    "id": "sr-325",
+    "date": "2026-06-20",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 24,
+      "rotulos": 56
+    }
+  },
+  {
+    "id": "sr-326",
+    "date": "2026-06-20",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 47,
+      "rotulos": 0
+    }
+  },
+  {
+    "id": "sr-327",
+    "date": "2026-06-20",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 35,
+      "rotulos": 25
+    }
+  },
+  {
+    "id": "sr-328",
+    "date": "2026-06-20",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 367
+    }
+  },
+  {
+    "id": "sr-329",
+    "date": "2026-06-20",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 292
+    }
+  },
+  {
+    "id": "sr-330",
+    "date": "2026-06-20",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 349
+    }
+  },
+  {
+    "id": "sr-331",
+    "date": "2026-06-21",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 33,
+      "rotulos": 12
+    }
+  },
+  {
+    "id": "sr-332",
+    "date": "2026-06-21",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 20,
+      "rotulos": 75
+    }
+  },
+  {
+    "id": "sr-333",
+    "date": "2026-06-21",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 50,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-334",
+    "date": "2026-06-21",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 333
+    }
+  },
+  {
+    "id": "sr-335",
+    "date": "2026-06-21",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 374
+    }
+  },
+  {
+    "id": "sr-336",
+    "date": "2026-06-21",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 316
+    }
+  },
+  {
+    "id": "sr-337",
+    "date": "2026-06-22",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 40,
+      "rotulos": 0
+    }
+  },
+  {
+    "id": "sr-338",
+    "date": "2026-06-22",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 38,
+      "rotulos": 20
+    }
+  },
+  {
+    "id": "sr-339",
+    "date": "2026-06-22",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 29,
+      "rotulos": 68
+    }
+  },
+  {
+    "id": "sr-340",
+    "date": "2026-06-22",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 302
+    }
+  },
+  {
+    "id": "sr-341",
+    "date": "2026-06-22",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 328
+    }
+  },
+  {
+    "id": "sr-342",
+    "date": "2026-06-22",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 366
+    }
+  },
+  {
+    "id": "sr-343",
+    "date": "2026-06-23",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 20,
+      "rotulos": 58
+    }
+  },
+  {
+    "id": "sr-344",
+    "date": "2026-06-23",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 42,
+      "rotulos": 4
+    }
+  },
+  {
+    "id": "sr-345",
+    "date": "2026-06-23",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 29,
+      "rotulos": 13
+    }
+  },
+  {
+    "id": "sr-346",
+    "date": "2026-06-23",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 361
+    }
+  },
+  {
+    "id": "sr-347",
+    "date": "2026-06-23",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 270
+    }
+  },
+  {
+    "id": "sr-348",
+    "date": "2026-06-23",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 312
+    }
+  },
+  {
+    "id": "sr-349",
+    "date": "2026-06-24",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 32,
+      "rotulos": 17
+    }
+  },
+  {
+    "id": "sr-350",
+    "date": "2026-06-24",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 26,
+      "rotulos": 56
+    }
+  },
+  {
+    "id": "sr-351",
+    "date": "2026-06-24",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 41,
+      "rotulos": 3
+    }
+  },
+  {
+    "id": "sr-352",
+    "date": "2026-06-24",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 350
+    }
+  },
+  {
+    "id": "sr-353",
+    "date": "2026-06-24",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 372
+    }
+  },
+  {
+    "id": "sr-354",
+    "date": "2026-06-24",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 302
+    }
+  },
+  {
+    "id": "sr-355",
+    "date": "2026-06-25",
+    "lineId": "l1",
+    "shiftId": "s1",
+    "operatorName": "Diaz",
+    "values": {
+      "fardos": 40,
+      "rotulos": 4
+    }
+  },
+  {
+    "id": "sr-356",
+    "date": "2026-06-25",
+    "lineId": "l1",
+    "shiftId": "s2",
+    "operatorName": "Zeppa",
+    "values": {
+      "fardos": 25,
+      "rotulos": 21
+    }
+  },
+  {
+    "id": "sr-357",
+    "date": "2026-06-25",
+    "lineId": "l1",
+    "shiftId": "s3",
+    "operatorName": "Rasente",
+    "values": {
+      "fardos": 21,
+      "rotulos": 73
+    }
+  },
+  {
+    "id": "sr-358",
+    "date": "2026-06-25",
+    "lineId": "l2",
+    "shiftId": "s1",
+    "operatorName": "Caceres",
+    "values": {
+      "bultos": 266
+    }
+  },
+  {
+    "id": "sr-359",
+    "date": "2026-06-25",
+    "lineId": "l2",
+    "shiftId": "s2",
+    "operatorName": "Martini/Reinado",
+    "values": {
+      "bultos": 343
+    }
+  },
+  {
+    "id": "sr-360",
+    "date": "2026-06-25",
+    "lineId": "l2",
+    "shiftId": "s3",
+    "operatorName": "Perez",
+    "values": {
+      "bultos": 363
+    }
+  }
+]

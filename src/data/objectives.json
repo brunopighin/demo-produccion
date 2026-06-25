@@ -1,0 +1,61 @@
+[
+  { "id": "obj-m1-prod-d", "machineId": "m1", "kpiType": "production", "periodType": "daily", "targetValue": 585000 },
+  { "id": "obj-m2-prod-d", "machineId": "m2", "kpiType": "production", "periodType": "daily", "targetValue": 84000 },
+  { "id": "obj-m3-prod-d", "machineId": "m3", "kpiType": "production", "periodType": "daily", "targetValue": 75000 },
+  { "id": "obj-m4-prod-d", "machineId": "m4", "kpiType": "production", "periodType": "daily", "targetValue": 194472 },
+  { "id": "obj-m5-prod-d", "machineId": "m5", "kpiType": "production", "periodType": "daily", "targetValue": 190446 },
+  { "id": "obj-m6-prod-d", "machineId": "m6", "kpiType": "production", "periodType": "daily", "targetValue": 101961 },
+  { "id": "obj-m7-prod-d", "machineId": "m7", "kpiType": "production", "periodType": "daily", "targetValue": 148200 },
+
+  { "id": "obj-m1-prod-s1", "machineId": "m1", "kpiType": "production", "periodType": "shift", "shiftId": "s1", "targetValue": 195000 },
+  { "id": "obj-m1-prod-s2", "machineId": "m1", "kpiType": "production", "periodType": "shift", "shiftId": "s2", "targetValue": 195000 },
+  { "id": "obj-m1-prod-s3", "machineId": "m1", "kpiType": "production", "periodType": "shift", "shiftId": "s3", "targetValue": 195000 },
+
+  { "id": "obj-m2-prod-s1", "machineId": "m2", "kpiType": "production", "periodType": "shift", "shiftId": "s1", "targetValue": 28000 },
+  { "id": "obj-m2-prod-s2", "machineId": "m2", "kpiType": "production", "periodType": "shift", "shiftId": "s2", "targetValue": 28000 },
+  { "id": "obj-m2-prod-s3", "machineId": "m2", "kpiType": "production", "periodType": "shift", "shiftId": "s3", "targetValue": 28000 },
+
+  { "id": "obj-m3-prod-s1", "machineId": "m3", "kpiType": "production", "periodType": "shift", "shiftId": "s1", "targetValue": 25000 },
+  { "id": "obj-m3-prod-s2", "machineId": "m3", "kpiType": "production", "periodType": "shift", "shiftId": "s2", "targetValue": 25000 },
+  { "id": "obj-m3-prod-s3", "machineId": "m3", "kpiType": "production", "periodType": "shift", "shiftId": "s3", "targetValue": 25000 },
+
+  { "id": "obj-m4-prod-s1", "machineId": "m4", "kpiType": "production", "periodType": "shift", "shiftId": "s1", "targetValue": 64824 },
+  { "id": "obj-m4-prod-s2", "machineId": "m4", "kpiType": "production", "periodType": "shift", "shiftId": "s2", "targetValue": 64824 },
+  { "id": "obj-m4-prod-s3", "machineId": "m4", "kpiType": "production", "periodType": "shift", "shiftId": "s3", "targetValue": 64824 },
+
+  { "id": "obj-m5-prod-s1", "machineId": "m5", "kpiType": "production", "periodType": "shift", "shiftId": "s1", "targetValue": 63482 },
+  { "id": "obj-m5-prod-s2", "machineId": "m5", "kpiType": "production", "periodType": "shift", "shiftId": "s2", "targetValue": 63482 },
+  { "id": "obj-m5-prod-s3", "machineId": "m5", "kpiType": "production", "periodType": "shift", "shiftId": "s3", "targetValue": 63482 },
+
+  { "id": "obj-m6-prod-s1", "machineId": "m6", "kpiType": "production", "periodType": "shift", "shiftId": "s1", "targetValue": 33987 },
+  { "id": "obj-m6-prod-s2", "machineId": "m6", "kpiType": "production", "periodType": "shift", "shiftId": "s2", "targetValue": 33987 },
+  { "id": "obj-m6-prod-s3", "machineId": "m6", "kpiType": "production", "periodType": "shift", "shiftId": "s3", "targetValue": 33987 },
+
+  { "id": "obj-m7-prod-s1", "machineId": "m7", "kpiType": "production", "periodType": "shift", "shiftId": "s1", "targetValue": 49400 },
+  { "id": "obj-m7-prod-s2", "machineId": "m7", "kpiType": "production", "periodType": "shift", "shiftId": "s2", "targetValue": 49400 },
+  { "id": "obj-m7-prod-s3", "machineId": "m7", "kpiType": "production", "periodType": "shift", "shiftId": "s3", "targetValue": 49400 },
+
+  { "id": "obj-m1-oee", "machineId": "m1", "kpiType": "oee", "periodType": "daily", "targetValue": 0.80 },
+  { "id": "obj-m2-oee", "machineId": "m2", "kpiType": "oee", "periodType": "daily", "targetValue": 0.78 },
+  { "id": "obj-m3-oee", "machineId": "m3", "kpiType": "oee", "periodType": "daily", "targetValue": 0.78 },
+  { "id": "obj-m4-oee", "machineId": "m4", "kpiType": "oee", "periodType": "daily", "targetValue": 0.75 },
+  { "id": "obj-m5-oee", "machineId": "m5", "kpiType": "oee", "periodType": "daily", "targetValue": 0.75 },
+  { "id": "obj-m6-oee", "machineId": "m6", "kpiType": "oee", "periodType": "daily", "targetValue": 0.80 },
+  { "id": "obj-m7-oee", "machineId": "m7", "kpiType": "oee", "periodType": "daily", "targetValue": 0.78 },
+
+  { "id": "obj-m1-scrap", "machineId": "m1", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.04 },
+  { "id": "obj-m2-scrap", "machineId": "m2", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.05 },
+  { "id": "obj-m3-scrap", "machineId": "m3", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.05 },
+  { "id": "obj-m4-scrap", "machineId": "m4", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.06 },
+  { "id": "obj-m5-scrap", "machineId": "m5", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.06 },
+  { "id": "obj-m6-scrap", "machineId": "m6", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.05 },
+  { "id": "obj-m7-scrap", "machineId": "m7", "kpiType": "scrap", "periodType": "daily", "targetValue": 0.05 },
+
+  { "id": "obj-m1-comp", "machineId": "m1", "kpiType": "compliance", "periodType": "daily", "targetValue": 0.90 },
+  { "id": "obj-m2-comp", "machineId": "m2", "kpiType": "compliance", "periodType": "daily", "targetValue": 0.90 },
+  { "id": "obj-m3-comp", "machineId": "m3", "kpiType": "compliance", "periodType": "daily", "targetValue": 0.90 },
+  { "id": "obj-m4-comp", "machineId": "m4", "kpiType": "compliance", "periodType": "daily", "targetValue": 0.88 },
+  { "id": "obj-m5-comp", "machineId": "m5", "kpiType": "compliance", "periodType": "daily", "targetValue": 0.88 },
+  { "id": "obj-m6-comp", "machineId": "m6", "kpiType": "compliance", "periodType": "daily", "targetValue": 0.90 },
+  { "id": "obj-m7-comp", "machineId": "m7", "kpiType": "compliance", "periodType": "daily", "targetValue": 0.90 }
+]

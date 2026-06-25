@@ -1,0 +1,16 @@
+[
+  { "id": "o1", "code": "OP01", "name": "J. Gómez", "primaryMachineId": "m6", "active": true },
+  { "id": "o2", "code": "OP02", "name": "M. Fernández", "primaryMachineId": "m1", "active": true },
+  { "id": "o3", "code": "OP03", "name": "R. Acosta", "primaryMachineId": "m2", "active": true },
+  { "id": "o4", "code": "OP04", "name": "L. Suárez", "primaryMachineId": "m7", "active": true },
+  { "id": "o5", "code": "OP05", "name": "C. Romero", "primaryMachineId": "m3", "active": true },
+  { "id": "o6", "code": "OP06", "name": "D. Torres", "primaryMachineId": "m4", "active": true },
+  { "id": "o7", "code": "OP07", "name": "S. Medina", "primaryMachineId": "m5", "active": true },
+  { "id": "o8", "code": "OP08", "name": "F. Ibáñez", "primaryMachineId": "m1", "active": true },
+  { "id": "o9", "code": "OP09", "name": "N. Cabrera", "primaryMachineId": "m2", "active": true },
+  { "id": "o10", "code": "OP10", "name": "A. Paredes", "primaryMachineId": "m6", "active": true },
+  { "id": "o11", "code": "OP11", "name": "E. Ríos", "primaryMachineId": "m7", "active": true },
+  { "id": "o12", "code": "OP12", "name": "V. Núñez", "primaryMachineId": "m3", "active": true },
+  { "id": "o13", "code": "OP13", "name": "P. Godoy", "primaryMachineId": "m4", "active": true },
+  { "id": "o14", "code": "OP14", "name": "G. Molina", "primaryMachineId": "m5", "active": false }
+]

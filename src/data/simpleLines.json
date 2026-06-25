@@ -1,0 +1,19 @@
+[
+  {
+    "id": "l1",
+    "code": "PICADERO",
+    "name": "Picadero",
+    "metrics": [
+      { "key": "fardos", "unit": "fardos", "label": "Fardos" },
+      { "key": "rotulos", "unit": "rotulos", "label": "Rótulos" }
+    ]
+  },
+  {
+    "id": "l2",
+    "code": "FLEJADORA",
+    "name": "Flejadora",
+    "metrics": [
+      { "key": "bultos", "unit": "bultos", "label": "Bultos" }
+    ]
+  }
+]

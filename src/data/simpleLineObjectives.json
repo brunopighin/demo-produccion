@@ -1,0 +1,16 @@
+[
+  { "id": "obj-l1-fardos-d", "lineId": "l1", "metricKey": "fardos", "periodType": "daily", "targetValue": 98 },
+  { "id": "obj-l1-fardos-s1", "lineId": "l1", "metricKey": "fardos", "periodType": "shift", "shiftId": "s1", "targetValue": 33 },
+  { "id": "obj-l1-fardos-s2", "lineId": "l1", "metricKey": "fardos", "periodType": "shift", "shiftId": "s2", "targetValue": 33 },
+  { "id": "obj-l1-fardos-s3", "lineId": "l1", "metricKey": "fardos", "periodType": "shift", "shiftId": "s3", "targetValue": 33 },
+
+  { "id": "obj-l1-rotulos-d", "lineId": "l1", "metricKey": "rotulos", "periodType": "daily", "targetValue": 84 },
+  { "id": "obj-l1-rotulos-s1", "lineId": "l1", "metricKey": "rotulos", "periodType": "shift", "shiftId": "s1", "targetValue": 28 },
+  { "id": "obj-l1-rotulos-s2", "lineId": "l1", "metricKey": "rotulos", "periodType": "shift", "shiftId": "s2", "targetValue": 28 },
+  { "id": "obj-l1-rotulos-s3", "lineId": "l1", "metricKey": "rotulos", "periodType": "shift", "shiftId": "s3", "targetValue": 28 },
+
+  { "id": "obj-l2-bultos-d", "lineId": "l2", "metricKey": "bultos", "periodType": "daily", "targetValue": 1025 },
+  { "id": "obj-l2-bultos-s1", "lineId": "l2", "metricKey": "bultos", "periodType": "shift", "shiftId": "s1", "targetValue": 342 },
+  { "id": "obj-l2-bultos-s2", "lineId": "l2", "metricKey": "bultos", "periodType": "shift", "shiftId": "s2", "targetValue": 342 },
+  { "id": "obj-l2-bultos-s3", "lineId": "l2", "metricKey": "bultos", "periodType": "shift", "shiftId": "s3", "targetValue": 342 }
+]

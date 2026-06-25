@@ -1,0 +1,9 @@
+[
+  { "id": "m1", "code": "CORR", "name": "Corrugadora", "type": "corrugadora", "unit": "m2", "nominalSpeed": 442.3, "linealSpeedMph": 12400, "formatWidth": 2.14 },
+  { "id": "m2", "code": "HBL", "name": "HBL", "type": "flexo", "unit": "m2", "nominalSpeed": 99.1 },
+  { "id": "m3", "code": "DRO", "name": "DRO", "type": "troqueladora", "unit": "m2", "nominalSpeed": 91.4 },
+  { "id": "m4", "code": "MINI1", "name": "Mini 1", "type": "flexo", "unit": "golpes", "nominalSpeed": 140.9 },
+  { "id": "m5", "code": "MINI2", "name": "Mini 2", "type": "flexo", "unit": "golpes", "nominalSpeed": 138.0 },
+  { "id": "m6", "code": "PACIFIC", "name": "Pacific", "type": "flexo", "unit": "golpes", "nominalSpeed": 73.9 },
+  { "id": "m7", "code": "WARD11500", "name": "Ward 11500", "type": "troqueladora", "unit": "golpes", "nominalSpeed": 107.4 }
+]

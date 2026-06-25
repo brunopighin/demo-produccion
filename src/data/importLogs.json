@@ -1,0 +1,1082 @@
+[
+  {
+    "id": "imp-2026-06-25-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-25.csv",
+    "importedAt": "2026-06-25T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-25-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-25.xlsx",
+    "importedAt": "2026-06-25T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-24-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-24.csv",
+    "importedAt": "2026-06-24T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-24-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-24.xlsx",
+    "importedAt": "2026-06-24T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-23-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-23.csv",
+    "importedAt": "2026-06-23T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-23-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-23.xlsx",
+    "importedAt": "2026-06-23T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-22-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-22.csv",
+    "importedAt": "2026-06-22T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 3
+  },
+  {
+    "id": "imp-2026-06-22-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-22.xlsx",
+    "importedAt": "2026-06-22T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-21-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-21.csv",
+    "importedAt": "2026-06-21T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-21-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-21.xlsx",
+    "importedAt": "2026-06-21T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-20-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-20.csv",
+    "importedAt": "2026-06-20T06:07:00",
+    "status": "warning",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-20-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-20.xlsx",
+    "importedAt": "2026-06-20T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-19-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-19.csv",
+    "importedAt": "2026-06-19T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-19-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-19.xlsx",
+    "importedAt": "2026-06-19T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-18-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-18.csv",
+    "importedAt": "2026-06-18T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-18-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-18.xlsx",
+    "importedAt": "2026-06-18T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-17-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-17.csv",
+    "importedAt": "2026-06-17T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-17-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-17.xlsx",
+    "importedAt": "2026-06-17T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-16-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-16.csv",
+    "importedAt": "2026-06-16T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-16-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-16.xlsx",
+    "importedAt": "2026-06-16T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-15-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-15.csv",
+    "importedAt": "2026-06-15T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-15-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-15.xlsx",
+    "importedAt": "2026-06-15T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-14-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-14.csv",
+    "importedAt": "2026-06-14T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-14-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-14.xlsx",
+    "importedAt": "2026-06-14T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-13-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-13.csv",
+    "importedAt": "2026-06-13T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-13-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-13.xlsx",
+    "importedAt": "2026-06-13T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-12-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-12.csv",
+    "importedAt": "2026-06-12T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-12-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-12.xlsx",
+    "importedAt": "2026-06-12T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-11-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-11.csv",
+    "importedAt": "2026-06-11T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-11-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-11.xlsx",
+    "importedAt": "2026-06-11T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-10-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-10.csv",
+    "importedAt": "2026-06-10T06:07:00",
+    "status": "warning",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-10-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-10.xlsx",
+    "importedAt": "2026-06-10T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-09-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-09.csv",
+    "importedAt": "2026-06-09T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-09-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-09.xlsx",
+    "importedAt": "2026-06-09T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-08-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-08.csv",
+    "importedAt": "2026-06-08T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-08-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-08.xlsx",
+    "importedAt": "2026-06-08T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-07-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-07.csv",
+    "importedAt": "2026-06-07T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-07-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-07.xlsx",
+    "importedAt": "2026-06-07T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-06-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-06.csv",
+    "importedAt": "2026-06-06T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-06-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-06.xlsx",
+    "importedAt": "2026-06-06T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-05-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-05.csv",
+    "importedAt": "2026-06-05T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-05-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-05.xlsx",
+    "importedAt": "2026-06-05T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-04-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-04.csv",
+    "importedAt": "2026-06-04T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-04-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-04.xlsx",
+    "importedAt": "2026-06-04T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-03-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-03.csv",
+    "importedAt": "2026-06-03T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-03-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-03.xlsx",
+    "importedAt": "2026-06-03T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-02-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-02.csv",
+    "importedAt": "2026-06-02T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-02-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-02.xlsx",
+    "importedAt": "2026-06-02T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-01-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-06-01.csv",
+    "importedAt": "2026-06-01T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-06-01-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-06-01.xlsx",
+    "importedAt": "2026-06-01T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-31-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-31.csv",
+    "importedAt": "2026-05-31T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-31-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-31.xlsx",
+    "importedAt": "2026-05-31T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-30-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-30.csv",
+    "importedAt": "2026-05-30T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-30-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-30.xlsx",
+    "importedAt": "2026-05-30T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-29-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-29.csv",
+    "importedAt": "2026-05-29T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-29-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-29.xlsx",
+    "importedAt": "2026-05-29T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-28-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-28.csv",
+    "importedAt": "2026-05-28T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-28-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-28.xlsx",
+    "importedAt": "2026-05-28T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-27-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-27.csv",
+    "importedAt": "2026-05-27T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-27-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-27.xlsx",
+    "importedAt": "2026-05-27T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-26-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-26.csv",
+    "importedAt": "2026-05-26T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-26-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-26.xlsx",
+    "importedAt": "2026-05-26T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-25-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-25.csv",
+    "importedAt": "2026-05-25T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-25-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-25.xlsx",
+    "importedAt": "2026-05-25T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-24-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-24.csv",
+    "importedAt": "2026-05-24T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-24-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-24.xlsx",
+    "importedAt": "2026-05-24T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-23-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-23.csv",
+    "importedAt": "2026-05-23T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-23-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-23.xlsx",
+    "importedAt": "2026-05-23T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-22-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-22.csv",
+    "importedAt": "2026-05-22T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-22-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-22.xlsx",
+    "importedAt": "2026-05-22T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-21-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-21.csv",
+    "importedAt": "2026-05-21T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-21-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-21.xlsx",
+    "importedAt": "2026-05-21T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-20-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-20.csv",
+    "importedAt": "2026-05-20T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-20-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-20.xlsx",
+    "importedAt": "2026-05-20T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-19-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-19.csv",
+    "importedAt": "2026-05-19T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-19-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-19.xlsx",
+    "importedAt": "2026-05-19T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-18-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-18.csv",
+    "importedAt": "2026-05-18T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-18-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-18.xlsx",
+    "importedAt": "2026-05-18T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-17-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-17.csv",
+    "importedAt": "2026-05-17T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-17-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-17.xlsx",
+    "importedAt": "2026-05-17T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-16-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-16.csv",
+    "importedAt": "2026-05-16T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-16-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-16.xlsx",
+    "importedAt": "2026-05-16T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-15-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-15.csv",
+    "importedAt": "2026-05-15T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-15-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-15.xlsx",
+    "importedAt": "2026-05-15T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-14-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-14.csv",
+    "importedAt": "2026-05-14T06:07:00",
+    "status": "warning",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-14-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-14.xlsx",
+    "importedAt": "2026-05-14T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-13-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-13.csv",
+    "importedAt": "2026-05-13T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-13-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-13.xlsx",
+    "importedAt": "2026-05-13T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-12-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-12.csv",
+    "importedAt": "2026-05-12T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-12-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-12.xlsx",
+    "importedAt": "2026-05-12T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-11-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-11.csv",
+    "importedAt": "2026-05-11T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-11-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-11.xlsx",
+    "importedAt": "2026-05-11T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-10-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-10.csv",
+    "importedAt": "2026-05-10T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-10-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-10.xlsx",
+    "importedAt": "2026-05-10T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-09-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-09.csv",
+    "importedAt": "2026-05-09T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-09-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-09.xlsx",
+    "importedAt": "2026-05-09T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-08-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-08.csv",
+    "importedAt": "2026-05-08T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-08-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-08.xlsx",
+    "importedAt": "2026-05-08T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-07-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-07.csv",
+    "importedAt": "2026-05-07T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 3
+  },
+  {
+    "id": "imp-2026-05-07-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-07.xlsx",
+    "importedAt": "2026-05-07T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-06-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-06.csv",
+    "importedAt": "2026-05-06T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-06-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-06.xlsx",
+    "importedAt": "2026-05-06T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-05-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-05.csv",
+    "importedAt": "2026-05-05T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-05-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-05.xlsx",
+    "importedAt": "2026-05-05T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-04-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-04.csv",
+    "importedAt": "2026-05-04T06:07:00",
+    "status": "warning",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-04-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-04.xlsx",
+    "importedAt": "2026-05-04T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-03-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-03.csv",
+    "importedAt": "2026-05-03T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-03-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-03.xlsx",
+    "importedAt": "2026-05-03T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-02-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-02.csv",
+    "importedAt": "2026-05-02T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-02-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-02.xlsx",
+    "importedAt": "2026-05-02T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-01-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-05-01.csv",
+    "importedAt": "2026-05-01T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-05-01-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-05-01.xlsx",
+    "importedAt": "2026-05-01T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-04-30-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-04-30.csv",
+    "importedAt": "2026-04-30T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-04-30-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-04-30.xlsx",
+    "importedAt": "2026-04-30T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-04-29-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-04-29.csv",
+    "importedAt": "2026-04-29T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-04-29-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-04-29.xlsx",
+    "importedAt": "2026-04-29T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-04-28-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-04-28.csv",
+    "importedAt": "2026-04-28T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-04-28-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-04-28.xlsx",
+    "importedAt": "2026-04-28T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-04-27-map",
+    "source": "kiwi_map",
+    "filename": "kiwi_map_2026-04-27.csv",
+    "importedAt": "2026-04-27T06:07:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  },
+  {
+    "id": "imp-2026-04-27-plant",
+    "source": "kiwi_plant",
+    "filename": "kiwi_plant_2026-04-27.xlsx",
+    "importedAt": "2026-04-27T06:05:00",
+    "status": "ok",
+    "rowsTotal": 21,
+    "rowsError": 0
+  }
+]
