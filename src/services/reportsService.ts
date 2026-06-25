@@ -53,6 +53,70 @@ function escapeHtml(value: string): string {
   return value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!)
 }
 
+interface BarChartItem {
+  label: string
+  value: number
+  valueLabel: string
+  color: string
+}
+
+/** Gráfico de barras verticales en SVG puro: se imprime/exporta a PDF tal cual, sin depender de canvas ni de la ventana abierta. */
+function buildBarChartSvg(items: BarChartItem[], title: string): string {
+  const width = 760
+  const height = 200
+  const barGap = 14
+  const barWidth = (width - barGap * (items.length + 1)) / items.length
+  const chartTop = 24
+  const chartBottom = height - 28
+  const usableHeight = chartBottom - chartTop
+  const maxValue = Math.max(...items.map((i) => i.value), 0.0001)
+
+  const bars = items
+    .map((item, i) => {
+      const x = barGap + i * (barWidth + barGap)
+      const barHeight = Math.max((item.value / maxValue) * usableHeight, 1)
+      const y = chartBottom - barHeight
+      return `
+        <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" fill="${item.color}" rx="2" />
+        <text x="${x + barWidth / 2}" y="${y - 6}" text-anchor="middle" font-size="10" font-weight="bold" fill="#1f2937">${escapeHtml(item.valueLabel)}</text>
+        <text x="${x + barWidth / 2}" y="${chartBottom + 14}" text-anchor="middle" font-size="9" fill="#6b7280">${escapeHtml(item.label)}</text>
+      `
+    })
+    .join('')
+
+  return `<div style="margin-bottom:16px;">
+    <p style="font-size:11px;font-weight:bold;color:#1f2937;margin:0 0 4px;">${escapeHtml(title)}</p>
+    <svg viewBox="0 0 ${width} ${height}" width="100%" height="${height}" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="${chartBottom}" x2="${width}" y2="${chartBottom}" stroke="#e5e7eb" stroke-width="1" />
+      ${bars}
+    </svg>
+  </div>`
+}
+
+function buildChartsSection(machines: Machine[], machineKpis: MachineKpis[]): string {
+  const items = machines
+    .map((m) => ({ m, k: machineKpis.find((x) => x.machineId === m.id) }))
+    .filter((x): x is { m: Machine; k: MachineKpis } => !!x.k)
+
+  if (items.length === 0) return ''
+
+  const productionChart = buildBarChartSvg(
+    items.map(({ m, k }) => ({ label: m.name, value: k.production, valueLabel: formatNumber(k.production, 0), color: '#1e4480' })),
+    'Producción por máquina',
+  )
+  const oeeChart = buildBarChartSvg(
+    items.map(({ m, k }) => ({
+      label: m.name,
+      value: k.oee,
+      valueLabel: formatPct(k.oee, 0),
+      color: k.oee >= 0.7 ? '#1e9e5a' : k.oee >= 0.5 ? '#c98a00' : '#d23c3c',
+    })),
+    'OEE por máquina',
+  )
+
+  return `<div style="margin-top:16px;">${productionChart}${oeeChart}</div>`
+}
+
 function buildReportHtml(data: ReportData): string {
   const { reportType, date, summary, machines, machineKpis, includeCharts } = data
   const label = REPORT_TYPES.find((r) => r.value === reportType)?.label ?? ''
@@ -120,7 +184,7 @@ function buildReportHtml(data: ReportData): string {
     <tbody>${rows}</tbody>
   </table>
 
-  ${includeCharts ? '<p style="margin-top:16px;font-size:10px;color:#9ca3af;">Los gráficos detallados están disponibles en el dashboard interactivo.</p>' : ''}
+  ${includeCharts ? buildChartsSection(machines, machineKpis) : ''}
 
   <footer>BJP Industrial Analytics · Reporte generado automáticamente</footer>
 </body>
