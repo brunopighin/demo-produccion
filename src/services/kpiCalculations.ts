@@ -14,6 +14,14 @@ export function oeeOf(rec: ProductionRecord, machine: Machine): number {
   return availabilityOf(rec) * performanceOf(rec, machine)
 }
 
+export function otChangesOf(rec: ProductionRecord): number {
+  return rec.downtimes.filter((d) => d.reason === 'Cambio de orden de trabajo').length
+}
+
+export function m2Of(rec: ProductionRecord, machine: Machine): number {
+  return machine.unit === 'm2' ? rec.qtyProduced : rec.qtyProduced * (machine.m2PerUnit ?? 0)
+}
+
 /**
  * Estado semáforo de un valor frente a sus umbrales.
  * `lowerIsBetter` se usa para KPIs como scrap, donde un valor más bajo es mejor.

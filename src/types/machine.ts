@@ -10,6 +10,7 @@ export interface Machine {
   nominalSpeed: number // unidades/min nominal (según `unit`), referencia para cálculo de rendimiento
   linealSpeedMph?: number // velocidad nominal en metros lineales/hora (solo corrugadora)
   formatWidth?: number // ancho de formato (m² por metro lineal) usado para derivar nominalSpeed
+  m2PerUnit?: number // m² equivalentes por golpe (solo máquinas con unit === 'golpes'), usado en la planilla detallada
 }
 
 export type MachineStatus = 'optimo' | 'atencion' | 'critico' | 'sin_datos'

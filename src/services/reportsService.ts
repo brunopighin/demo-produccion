@@ -1,5 +1,6 @@
 import type { Machine, MachineKpis, DailySummary } from '@/types'
 import { formatDateLong, formatM2, formatGolpes, formatNumber, formatPct, formatQty } from '@/utils/format'
+import { getDetailedSheetMonthly, getDetailedSheetRows, getMachineById, getOperatorById, machines as allMachines } from './productionService'
 
 export type ReportType =
   | 'produccion_diaria'
@@ -8,6 +9,7 @@ export type ReportType =
   | 'por_operador'
   | 'cumplimiento'
   | 'indicadores_gestion'
+  | 'planilla_detallada'
 
 export type ReportFormat = 'pdf' | 'excel'
 
@@ -18,6 +20,7 @@ export const REPORT_TYPES: { value: ReportType; label: string }[] = [
   { value: 'por_operador', label: 'Por Operador' },
   { value: 'cumplimiento', label: 'Cumplimiento de Objetivos' },
   { value: 'indicadores_gestion', label: 'Indicadores de Gestión' },
+  { value: 'planilla_detallada', label: 'Planilla Detallada (estilo Excel)' },
 ]
 
 export interface ScheduledReport {
@@ -186,14 +189,170 @@ function buildReportHtml(data: ReportData): string {
 </html>`
 }
 
+function pctColor(value: number, greenMax: number, yellowMax: number): string {
+  if (value <= greenMax) return '#1e9e5a'
+  if (value <= yellowMax) return '#c98a00'
+  return '#d23c3c'
+}
+
+function rateColor(ratio: number): string {
+  if (ratio >= 1) return '#1e9e5a'
+  if (ratio >= 0.85) return '#c98a00'
+  return '#d23c3c'
+}
+
+const dash = '—'
+function fmtOrDash(value: number | null, fmt: (v: number) => string): string {
+  return value === null ? dash : fmt(value)
+}
+
+/** Planilla diaria estilo Excel: agrupada por máquina/maquinista, con acumulado del mes y promedio mensual por máquina. */
+function buildDetailedSheetHtml(date: string): string {
+  const rows = getDetailedSheetRows(date)
+  const monthStart = `${date.slice(0, 7)}-01`
+  const monthly = getDetailedSheetMonthly(monthStart, date)
+
+  const dailyRows = rows
+    .map((r) => {
+      const machine = getMachineById(r.machineId)!
+      const operator = getOperatorById(r.operatorId)
+      const rate = machine.unit === 'golpes' ? r.golpesHora ?? 0 : r.m2Hora
+      const ratio = rate / Math.max(machine.nominalSpeed, 0.0001)
+      return `<tr>
+        <td>${escapeHtml(machine.name)}</td>
+        <td>${escapeHtml(operator?.name ?? r.operatorId)}</td>
+        <td>${escapeHtml(formatNumber(r.hoursProd, 1))}</td>
+        <td>${fmtOrDash(r.golpesTurno, (v) => formatNumber(v, 0))}</td>
+        <td style="color:${rateColor(ratio)};font-weight:bold;">${fmtOrDash(r.golpesHora, (v) => formatNumber(v, 0))}</td>
+        <td>${escapeHtml(formatNumber(r.m2Turno, 0))}</td>
+        <td style="color:${rateColor(ratio)};font-weight:bold;">${escapeHtml(formatNumber(r.m2Hora, 2))}</td>
+        <td>${r.otChanges}</td>
+        <td>${fmtOrDash(r.golpesPorOt, (v) => formatNumber(v, 0))}</td>
+        <td>${fmtOrDash(r.m2PorGolpe, (v) => formatNumber(v, 2))}</td>
+        <td>${escapeHtml(formatNumber(r.tiempoParadoMin, 0))} min</td>
+        <td style="color:${pctColor(r.indisponibilidadPct, 0.15, 0.3)};font-weight:bold;">${escapeHtml(formatPct(r.indisponibilidadPct, 1))}</td>
+      </tr>`
+    })
+    .join('')
+
+  const monthlyRows = monthly
+    .map((m) => {
+      const machine = getMachineById(m.machineId)!
+      return `<tr>
+        <td>${escapeHtml(machine.name)}</td>
+        <td>${escapeHtml(formatNumber(m.hsTotal, 1))}</td>
+        <td>${fmtOrDash(m.golpesTotal, (v) => formatNumber(v, 0))}</td>
+        <td>${escapeHtml(formatNumber(m.m2Total, 0))}</td>
+        <td>${m.otTotal}</td>
+        <td>${fmtOrDash(m.m2PorGolpe, (v) => formatNumber(v, 2))}</td>
+        <td>${escapeHtml(formatNumber(m.tiempoParadoTotal, 0))} min</td>
+        <td style="color:${pctColor(m.indisponibilidadPct, 0.15, 0.3)};font-weight:bold;">${escapeHtml(formatPct(m.indisponibilidadPct, 1))}</td>
+        <td style="color:${pctColor(m.avgIndisponibilidadPct, 0.15, 0.3)};font-weight:bold;">${escapeHtml(formatPct(m.avgIndisponibilidadPct, 1))}</td>
+        <td>${fmtOrDash(m.avgGolpesTurno, (v) => formatNumber(v, 0))}</td>
+        <td>${escapeHtml(formatNumber(m.avgM2Turno, 0))}</td>
+        <td>${escapeHtml(formatNumber(m.avgM2Hora, 2))}</td>
+      </tr>`
+    })
+    .join('')
+
+  return `<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Planilla Detallada — ${escapeHtml(date)}</title>
+<style>
+  @page { size: A3 landscape; margin: 12mm; }
+  * { box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; color: #1f2937; margin: 0; font-size: 10px; }
+  header { display: flex; align-items: center; gap: 12px; border-bottom: 2px solid #1d4ed8; padding-bottom: 10px; margin-bottom: 12px; }
+  .logo { width: 32px; height: 32px; border-radius: 6px; background: #1e3a8a; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; }
+  h1 { font-size: 16px; margin: 0; }
+  h2 { font-size: 12px; margin: 18px 0 6px; color: #1e4480; }
+  .subtitle { font-size: 11px; color: #6b7280; margin: 2px 0 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5px; }
+  th, td { border: 1px solid #e5e7eb; padding: 4px 6px; text-align: right; white-space: nowrap; }
+  th { background: #f3f4f6; text-transform: uppercase; font-size: 8px; color: #6b7280; text-align: center; }
+  td:first-child, td:nth-child(2), th:first-child, th:nth-child(2) { text-align: left; }
+  footer { margin-top: 16px; font-size: 8px; color: #9ca3af; text-align: center; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">BJP</div>
+    <div>
+      <h1>PLANILLA DETALLADA — ${escapeHtml(formatDateLong(date))}</h1>
+      <p class="subtitle">Generado el ${escapeHtml(new Date().toLocaleString('es-AR'))}</p>
+    </div>
+  </header>
+
+  <h2>Detalle del día por máquina y maquinista</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Máquina</th><th>Maquinista</th><th>Hs. Prod</th><th>Gp/turno</th><th>Gp/hora</th>
+        <th>m²/turno</th><th>m²/hora</th><th>Cambio OT</th><th>Gp/OT</th><th>m²/gp</th>
+        <th>Tiempo parado</th><th>Indisp % Tot</th>
+      </tr>
+    </thead>
+    <tbody>${dailyRows}</tbody>
+  </table>
+
+  <h2>Acumulado del mes y promedio mensual por máquina</h2>
+  <table>
+    <thead>
+      <tr>
+        <th rowspan="2">Máquina</th>
+        <th colspan="7">Acumulado del mes</th>
+        <th colspan="4">Promedio mensual</th>
+      </tr>
+      <tr>
+        <th>Hs</th><th>Golpes</th><th>m²</th><th>OT</th><th>m²/gp</th><th>Tiempo parado</th><th>Indisp % Tot</th>
+        <th>Indisp %</th><th>Gp/turno</th><th>m²/turno</th><th>m²/hora</th>
+      </tr>
+    </thead>
+    <tbody>${monthlyRows}</tbody>
+  </table>
+
+  <footer>BJP Industrial Analytics · Reporte generado automáticamente · Total de máquinas: ${allMachines.length}</footer>
+</body>
+</html>`
+}
+
+function buildDetailedSheetCsv(date: string): string {
+  const rows = getDetailedSheetRows(date)
+  const header = ['Máquina', 'Maquinista', 'Hs. Prod', 'Gp/turno', 'Gp/hora', 'm²/turno', 'm²/hora', 'Cambio OT', 'Gp/OT', 'm²/gp', 'Tiempo parado (min)', 'Indisp % Tot']
+    .map(csvField)
+    .join(CSV_DELIMITER)
+  const body = rows.map((r) => {
+    const machine = getMachineById(r.machineId)!
+    const operator = getOperatorById(r.operatorId)
+    return [
+      csvField(machine.name),
+      csvField(operator?.name ?? r.operatorId),
+      formatNumber(r.hoursProd, 1),
+      r.golpesTurno === null ? dash : formatNumber(r.golpesTurno, 0),
+      r.golpesHora === null ? dash : formatNumber(r.golpesHora, 0),
+      formatNumber(r.m2Turno, 0),
+      formatNumber(r.m2Hora, 2),
+      String(r.otChanges),
+      r.golpesPorOt === null ? dash : formatNumber(r.golpesPorOt, 0),
+      r.m2PorGolpe === null ? dash : formatNumber(r.m2PorGolpe, 2),
+      formatNumber(r.tiempoParadoMin, 0),
+      formatPct(r.indisponibilidadPct, 1),
+    ].join(CSV_DELIMITER)
+  })
+  return [header, ...body].join('\r\n')
+}
+
 /** Abre una ventana con el reporte formateado y dispara el diálogo de impresión del navegador (permite imprimir o guardar como PDF). */
 function openPrintableReport(data: ReportData): void {
   const win = window.open('', '_blank', 'width=900,height=1200')
   if (!win) {
     throw new Error('El navegador bloqueó la ventana del reporte. Habilitá los pop-ups para este sitio.')
   }
+  const html = data.reportType === 'planilla_detallada' ? buildDetailedSheetHtml(data.date) : buildReportHtml(data)
   win.document.open()
-  win.document.write(buildReportHtml(data))
+  win.document.write(html)
   win.document.close()
   win.focus()
   win.onload = () => {
@@ -243,6 +402,8 @@ function downloadCsv(filename: string, csv: string): void {
 export function generateReport(format: ReportFormat, filename: string, data: ReportData): void {
   if (format === 'pdf') {
     openPrintableReport(data)
+  } else if (data.reportType === 'planilla_detallada') {
+    downloadCsv(filename, buildDetailedSheetCsv(data.date))
   } else {
     downloadCsv(filename, buildReportCsv(data))
   }

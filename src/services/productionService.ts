@@ -17,7 +17,7 @@ import type {
   KpiType,
   PeriodType,
 } from '@/types'
-import { availabilityOf, oeeOf, performanceOf, statusFromThreshold, sum } from './kpiCalculations'
+import { availabilityOf, m2Of, oeeOf, otChangesOf, performanceOf, statusFromThreshold, sum } from './kpiCalculations'
 
 export const machines = machinesJson as Machine[]
 export const operators = operatorsJson as Operator[]
@@ -320,6 +320,111 @@ export function getDowntimeLog(machineId: string, from: string, to: string, limi
     }
   }
   return rows.sort((a, b) => b.date.localeCompare(a.date)).slice(0, limit)
+}
+
+export interface DetailedSheetRow {
+  machineId: string
+  operatorId: string
+  shiftId: string
+  hoursProd: number
+  golpesTurno: number | null
+  golpesHora: number | null
+  m2Turno: number
+  m2Hora: number
+  otChanges: number
+  golpesPorOt: number | null
+  m2PorGolpe: number | null
+  tiempoParadoMin: number
+  indisponibilidadPct: number
+}
+
+function buildDetailedRow(r: ProductionRecord, machine: Machine): DetailedSheetRow {
+  const hoursProd = r.timeProductiveMin / 60
+  const golpesTurno = machine.unit === 'golpes' ? r.qtyProduced : null
+  const golpesHora = golpesTurno !== null && hoursProd > 0 ? golpesTurno / hoursProd : null
+  const m2Turno = m2Of(r, machine)
+  const m2Hora = hoursProd > 0 ? m2Turno / hoursProd : 0
+  const otChanges = otChangesOf(r)
+  const golpesPorOt = golpesTurno !== null && otChanges > 0 ? golpesTurno / otChanges : null
+  const m2PorGolpe = golpesTurno && golpesTurno > 0 ? m2Turno / golpesTurno : null
+  const tiempoParadoMin = r.timeSetupMin + r.timeDowntimeMin
+  const indisponibilidadPct = r.timeAvailableMin > 0 ? tiempoParadoMin / r.timeAvailableMin : 0
+
+  return {
+    machineId: machine.id,
+    operatorId: r.operatorId,
+    shiftId: r.shiftId,
+    hoursProd,
+    golpesTurno,
+    golpesHora,
+    m2Turno,
+    m2Hora,
+    otChanges,
+    golpesPorOt,
+    m2PorGolpe,
+    tiempoParadoMin,
+    indisponibilidadPct,
+  }
+}
+
+/** Filas de la planilla detallada (estilo Excel) agrupadas por máquina/maquinista para un día puntual. */
+export function getDetailedSheetRows(date: string): DetailedSheetRow[] {
+  return filterRecords({ date })
+    .map((r) => buildDetailedRow(r, getMachineById(r.machineId)!))
+    .sort((a, b) => a.machineId.localeCompare(b.machineId))
+}
+
+export interface DetailedSheetMonthly {
+  machineId: string
+  hsTotal: number
+  golpesTotal: number | null
+  m2Total: number
+  otTotal: number
+  m2PorGolpe: number | null
+  tiempoParadoTotal: number
+  indisponibilidadPct: number
+  avgIndisponibilidadPct: number
+  avgGolpesTurno: number | null
+  avgM2Turno: number
+  avgM2Hora: number
+}
+
+/** Acumulado del mes + promedio mensual por máquina, calculado a partir de los registros entre `from` y `to` (inclusive). */
+export function getDetailedSheetMonthly(from: string, to: string): DetailedSheetMonthly[] {
+  return machines.map((machine) => {
+    const records = filterRecords({ from, to, machineId: machine.id })
+    const rows = records.map((r) => buildDetailedRow(r, machine))
+
+    const hsTotal = sum(rows.map((r) => r.hoursProd))
+    const golpesTotal = machine.unit === 'golpes' ? sum(rows.map((r) => r.golpesTurno ?? 0)) : null
+    const m2Total = sum(rows.map((r) => r.m2Turno))
+    const otTotal = sum(rows.map((r) => r.otChanges))
+    const m2PorGolpe = golpesTotal && golpesTotal > 0 ? m2Total / golpesTotal : null
+    const tiempoParadoTotal = sum(rows.map((r) => r.tiempoParadoMin))
+    const availableTotal = sum(records.map((r) => r.timeAvailableMin))
+    const indisponibilidadPct = availableTotal > 0 ? tiempoParadoTotal / availableTotal : 0
+
+    const avgIndisponibilidadPct = rows.length ? sum(rows.map((r) => r.indisponibilidadPct)) / rows.length : 0
+    const golpesRows = rows.filter((r) => r.golpesTurno !== null)
+    const avgGolpesTurno = golpesRows.length ? sum(golpesRows.map((r) => r.golpesTurno!)) / golpesRows.length : null
+    const avgM2Turno = rows.length ? sum(rows.map((r) => r.m2Turno)) / rows.length : 0
+    const avgM2Hora = rows.length ? sum(rows.map((r) => r.m2Hora)) / rows.length : 0
+
+    return {
+      machineId: machine.id,
+      hsTotal,
+      golpesTotal,
+      m2Total,
+      otTotal,
+      m2PorGolpe,
+      tiempoParadoTotal,
+      indisponibilidadPct,
+      avgIndisponibilidadPct,
+      avgGolpesTurno,
+      avgM2Turno,
+      avgM2Hora,
+    }
+  })
 }
 
 export { availabilityOf, oeeOf, performanceOf }
