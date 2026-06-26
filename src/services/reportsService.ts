@@ -1,6 +1,8 @@
+import jsPDF from 'jspdf'
+import autoTable from 'jspdf-autotable'
 import type { Machine, MachineKpis, DailySummary } from '@/types'
 import { formatDateLong, formatM2, formatGolpes, formatNumber, formatPct, formatQty } from '@/utils/format'
-import { getDetailedSheetMonthly, getDetailedSheetRows, getMachineById, getOperatorById, machines as allMachines } from './productionService'
+import { getDetailedSheetMonthly, getDetailedSheetRows, getMachineById, getOperatorById } from './productionService'
 
 export type ReportType =
   | 'produccion_diaria'
@@ -50,272 +52,281 @@ export interface ReportData {
   includeCharts: boolean
 }
 
-function escapeHtml(value: string): string {
-  return value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!)
+const dash = '—'
+function fmtOrDash(value: number | null, fmt: (v: number) => string): string {
+  return value === null ? dash : fmt(value)
+}
+
+type RgbColor = [number, number, number]
+const COLOR_GREEN: RgbColor = [30, 158, 90]
+const COLOR_AMBER: RgbColor = [201, 138, 0]
+const COLOR_RED: RgbColor = [210, 60, 60]
+const COLOR_INK: RgbColor = [31, 41, 55]
+const COLOR_BRAND: RgbColor = [30, 68, 128]
+
+function pctColor(value: number, greenMax: number, yellowMax: number): RgbColor {
+  if (value <= greenMax) return COLOR_GREEN
+  if (value <= yellowMax) return COLOR_AMBER
+  return COLOR_RED
+}
+
+function rateColor(ratio: number): RgbColor {
+  if (ratio >= 1) return COLOR_GREEN
+  if (ratio >= 0.85) return COLOR_AMBER
+  return COLOR_RED
+}
+
+function addPdfHeader(doc: jsPDF, title: string, subtitle: string): number {
+  doc.setFillColor(...COLOR_BRAND)
+  doc.rect(12, 10, 9, 9, 'F')
+  doc.setTextColor(255, 255, 255)
+  doc.setFontSize(7)
+  doc.setFont('helvetica', 'bold')
+  doc.text('BJP', 16.5, 15.2, { align: 'center' })
+
+  doc.setTextColor(...COLOR_INK)
+  doc.setFontSize(13)
+  doc.text(title, 25, 14)
+  doc.setFontSize(8.5)
+  doc.setFont('helvetica', 'normal')
+  doc.setTextColor(107, 114, 128)
+  doc.text(subtitle, 25, 18.5)
+
+  doc.setDrawColor(...COLOR_BRAND)
+  doc.setLineWidth(0.6)
+  doc.line(12, 22, doc.internal.pageSize.getWidth() - 12, 22)
+  return 26
+}
+
+/** Reporte estándar (PDF real, sin diálogo de impresión): stats + tabla por máquina + gráficos de barra dibujados con jsPDF. */
+function buildSimpleReportPdf(data: ReportData): jsPDF {
+  const { reportType, date, summary, machines, machineKpis, includeCharts } = data
+  const label = REPORT_TYPES.find((r) => r.value === reportType)?.label ?? ''
+  const doc = new jsPDF({ unit: 'mm', format: 'a4' })
+  const pageWidth = doc.internal.pageSize.getWidth()
+  let y = addPdfHeader(doc, `${label.toUpperCase()} — ${formatDateLong(date)}`, `Máquinas incluidas: ${machines.length} · Generado el ${new Date().toLocaleString('es-AR')}`)
+
+  const stats: [string, string][] = [
+    [formatM2(summary.productionM2), 'Producción Corrugadora'],
+    [formatGolpes(summary.productionGolpes), 'Resto de máquinas'],
+    [formatPct(summary.oeeAvg, 1), 'OEE promedio'],
+    [formatPct(summary.compliancePct, 0), 'Cumplimiento'],
+  ]
+  const statWidth = (pageWidth - 24) / stats.length
+  stats.forEach(([value, statLabel], i) => {
+    const x = 12 + i * statWidth
+    doc.setDrawColor(229, 231, 235)
+    doc.roundedRect(x, y, statWidth - 4, 16, 1.5, 1.5)
+    doc.setFontSize(11)
+    doc.setFont('helvetica', 'bold')
+    doc.setTextColor(...COLOR_INK)
+    doc.text(value, x + (statWidth - 4) / 2, y + 7, { align: 'center' })
+    doc.setFontSize(7)
+    doc.setFont('helvetica', 'normal')
+    doc.setTextColor(107, 114, 128)
+    doc.text(statLabel, x + (statWidth - 4) / 2, y + 12, { align: 'center' })
+  })
+  y += 22
+
+  const rows = machines
+    .map((m) => ({ m, k: machineKpis.find((x) => x.machineId === m.id) }))
+    .filter((x): x is { m: Machine; k: MachineKpis } => !!x.k)
+
+  autoTable(doc, {
+    startY: y,
+    head: [['Máquina', 'Producción', 'Disponibilidad', 'Rendimiento', 'OEE']],
+    body: rows.map(({ m, k }) => [
+      m.name,
+      formatQty(k.production, k.unit),
+      formatPct(k.availability, 1),
+      formatPct(k.performance, 1),
+      formatPct(k.oee, 1),
+    ]),
+    styles: { fontSize: 9 },
+    headStyles: { fillColor: [243, 244, 246], textColor: [107, 114, 128], fontStyle: 'bold' },
+    didParseCell: (hookData) => {
+      if (hookData.section === 'body' && hookData.column.index === 4) {
+        const k = rows[hookData.row.index].k
+        hookData.cell.styles.textColor = k.oee >= 0.7 ? COLOR_GREEN : k.oee >= 0.5 ? COLOR_AMBER : COLOR_RED
+        hookData.cell.styles.fontStyle = 'bold'
+      }
+    },
+  })
+
+  if (includeCharts && rows.length > 0) {
+    let chartY = (doc as unknown as { lastAutoTable: { finalY: number } }).lastAutoTable.finalY + 10
+    chartY = drawBarChart(doc, chartY, 'Producción por máquina', rows.map(({ m, k }) => ({
+      label: m.name,
+      value: k.production,
+      valueLabel: formatNumber(k.production, 0),
+      color: COLOR_BRAND,
+    })))
+    drawBarChart(doc, chartY + 8, 'OEE por máquina', rows.map(({ m, k }) => ({
+      label: m.name,
+      value: k.oee,
+      valueLabel: formatPct(k.oee, 0),
+      color: k.oee >= 0.7 ? COLOR_GREEN : k.oee >= 0.5 ? COLOR_AMBER : COLOR_RED,
+    })))
+  }
+
+  addPdfFooter(doc)
+  return doc
 }
 
 interface BarChartItem {
   label: string
   value: number
   valueLabel: string
-  color: string
+  color: RgbColor
 }
 
-/** Gráfico de barras verticales en SVG puro: se imprime/exporta a PDF tal cual, sin depender de canvas ni de la ventana abierta. */
-function buildBarChartSvg(items: BarChartItem[], title: string): string {
-  const width = 760
-  const height = 200
-  const barGap = 14
-  const barWidth = (width - barGap * (items.length + 1)) / items.length
-  const chartTop = 24
-  const chartBottom = height - 28
-  const usableHeight = chartBottom - chartTop
+/** Dibuja un gráfico de barras verticales en coordenadas mm y devuelve el Y donde termina. */
+function drawBarChart(doc: jsPDF, startY: number, title: string, items: BarChartItem[]): number {
+  const pageWidth = doc.internal.pageSize.getWidth()
+  const chartWidth = pageWidth - 24
+  const chartHeight = 40
+  const gap = 3
+  const barWidth = (chartWidth - gap * (items.length + 1)) / items.length
+  const baseY = startY + chartHeight
   const maxValue = Math.max(...items.map((i) => i.value), 0.0001)
 
-  const bars = items
-    .map((item, i) => {
-      const x = barGap + i * (barWidth + barGap)
-      const barHeight = Math.max((item.value / maxValue) * usableHeight, 1)
-      const y = chartBottom - barHeight
-      return `
-        <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" fill="${item.color}" rx="2" />
-        <text x="${x + barWidth / 2}" y="${y - 6}" text-anchor="middle" font-size="10" font-weight="bold" fill="#1f2937">${escapeHtml(item.valueLabel)}</text>
-        <text x="${x + barWidth / 2}" y="${chartBottom + 14}" text-anchor="middle" font-size="9" fill="#6b7280">${escapeHtml(item.label)}</text>
-      `
-    })
-    .join('')
+  doc.setFontSize(9)
+  doc.setFont('helvetica', 'bold')
+  doc.setTextColor(...COLOR_INK)
+  doc.text(title, 12, startY - 2)
 
-  return `<div style="margin-bottom:16px;">
-    <p style="font-size:11px;font-weight:bold;color:#1f2937;margin:0 0 4px;">${escapeHtml(title)}</p>
-    <svg viewBox="0 0 ${width} ${height}" width="100%" height="${height}" xmlns="http://www.w3.org/2000/svg">
-      <line x1="0" y1="${chartBottom}" x2="${width}" y2="${chartBottom}" stroke="#e5e7eb" stroke-width="1" />
-      ${bars}
-    </svg>
-  </div>`
+  doc.setDrawColor(229, 231, 235)
+  doc.line(12, baseY, 12 + chartWidth, baseY)
+
+  items.forEach((item, i) => {
+    const x = 12 + gap + i * (barWidth + gap)
+    const barHeight = Math.max((item.value / maxValue) * (chartHeight - 8), 1)
+    const y = baseY - barHeight
+    doc.setFillColor(...item.color)
+    doc.rect(x, y, barWidth, barHeight, 'F')
+    doc.setFontSize(6.5)
+    doc.setFont('helvetica', 'bold')
+    doc.setTextColor(...COLOR_INK)
+    doc.text(item.valueLabel, x + barWidth / 2, y - 1.5, { align: 'center' })
+    doc.setFontSize(6)
+    doc.setFont('helvetica', 'normal')
+    doc.setTextColor(107, 114, 128)
+    doc.text(item.label, x + barWidth / 2, baseY + 4, { align: 'center', maxWidth: barWidth + gap })
+  })
+
+  return baseY + 8
 }
 
-function buildChartsSection(machines: Machine[], machineKpis: MachineKpis[]): string {
-  const items = machines
-    .map((m) => ({ m, k: machineKpis.find((x) => x.machineId === m.id) }))
-    .filter((x): x is { m: Machine; k: MachineKpis } => !!x.k)
-
-  if (items.length === 0) return ''
-
-  const productionChart = buildBarChartSvg(
-    items.map(({ m, k }) => ({ label: m.name, value: k.production, valueLabel: formatNumber(k.production, 0), color: '#1e4480' })),
-    'Producción por máquina',
-  )
-  const oeeChart = buildBarChartSvg(
-    items.map(({ m, k }) => ({
-      label: m.name,
-      value: k.oee,
-      valueLabel: formatPct(k.oee, 0),
-      color: k.oee >= 0.7 ? '#1e9e5a' : k.oee >= 0.5 ? '#c98a00' : '#d23c3c',
-    })),
-    'OEE por máquina',
-  )
-
-  return `<div style="margin-top:16px;">${productionChart}${oeeChart}</div>`
+function addPdfFooter(doc: jsPDF): void {
+  const pageWidth = doc.internal.pageSize.getWidth()
+  const pageHeight = doc.internal.pageSize.getHeight()
+  doc.setFontSize(7)
+  doc.setFont('helvetica', 'normal')
+  doc.setTextColor(156, 163, 175)
+  doc.text('BJP Industrial Analytics · Reporte generado automáticamente', pageWidth / 2, pageHeight - 8, { align: 'center' })
 }
 
-function buildReportHtml(data: ReportData): string {
-  const { reportType, date, summary, machines, machineKpis, includeCharts } = data
-  const label = REPORT_TYPES.find((r) => r.value === reportType)?.label ?? ''
-  const rows = machines
-    .map((m) => {
-      const k = machineKpis.find((x) => x.machineId === m.id)
-      if (!k) return ''
-      return `<tr>
-        <td>${escapeHtml(m.name)}</td>
-        <td>${escapeHtml(formatQty(k.production, k.unit))}</td>
-        <td>${escapeHtml(formatPct(k.availability, 1))}</td>
-        <td>${escapeHtml(formatPct(k.performance, 1))}</td>
-        <td><strong>${escapeHtml(formatPct(k.oee, 1))}</strong></td>
-      </tr>`
-    })
-    .join('')
-
-  return `<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8" />
-<title>${escapeHtml(label)} — ${escapeHtml(date)}</title>
-<style>
-  @page { size: A4; margin: 16mm; }
-  * { box-sizing: border-box; }
-  body { font-family: Arial, Helvetica, sans-serif; color: #1f2937; margin: 0; }
-  header { display: flex; align-items: center; gap: 12px; border-bottom: 2px solid #1d4ed8; padding-bottom: 12px; margin-bottom: 16px; }
-  .logo { width: 36px; height: 36px; border-radius: 6px; background: #1e3a8a; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px; }
-  h1 { font-size: 18px; margin: 0; }
-  .subtitle { font-size: 12px; color: #6b7280; margin: 2px 0 0; }
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
-  .stat { border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; text-align: center; }
-  .stat .value { font-size: 15px; font-weight: bold; }
-  .stat .label { font-size: 10px; color: #6b7280; margin-top: 2px; }
-  table { width: 100%; border-collapse: collapse; font-size: 11px; }
-  th, td { border: 1px solid #e5e7eb; padding: 6px 8px; text-align: left; }
-  th { background: #f3f4f6; text-transform: uppercase; font-size: 9px; color: #6b7280; }
-  footer { margin-top: 24px; font-size: 9px; color: #9ca3af; text-align: center; }
-  @media print { footer { position: fixed; bottom: 0; left: 0; right: 0; } }
-</style>
-</head>
-<body>
-  <header>
-    <div class="logo">BJP</div>
-    <div>
-      <h1>${escapeHtml(label.toUpperCase())} — ${escapeHtml(formatDateLong(date))}</h1>
-      <p class="subtitle">Máquinas incluidas: ${machines.length} · Generado el ${escapeHtml(new Date().toLocaleString('es-AR'))}</p>
-    </div>
-  </header>
-
-  <div class="stats">
-    <div class="stat"><div class="value">${escapeHtml(formatM2(summary.productionM2))}</div><div class="label">Producción Corrugadora</div></div>
-    <div class="stat"><div class="value">${escapeHtml(formatGolpes(summary.productionGolpes))}</div><div class="label">Resto de máquinas</div></div>
-    <div class="stat"><div class="value">${escapeHtml(formatPct(summary.oeeAvg, 1))}</div><div class="label">OEE promedio</div></div>
-    <div class="stat"><div class="value">${escapeHtml(formatPct(summary.compliancePct, 0))}</div><div class="label">Cumplimiento</div></div>
-  </div>
-
-  <table>
-    <thead>
-      <tr><th>Máquina</th><th>Producción</th><th>Disponibilidad</th><th>Rendimiento</th><th>OEE</th></tr>
-    </thead>
-    <tbody>${rows}</tbody>
-  </table>
-
-  ${includeCharts ? buildChartsSection(machines, machineKpis) : ''}
-
-  <footer>BJP Industrial Analytics · Reporte generado automáticamente</footer>
-</body>
-</html>`
-}
-
-function pctColor(value: number, greenMax: number, yellowMax: number): string {
-  if (value <= greenMax) return '#1e9e5a'
-  if (value <= yellowMax) return '#c98a00'
-  return '#d23c3c'
-}
-
-function rateColor(ratio: number): string {
-  if (ratio >= 1) return '#1e9e5a'
-  if (ratio >= 0.85) return '#c98a00'
-  return '#d23c3c'
-}
-
-const dash = '—'
-function fmtOrDash(value: number | null, fmt: (v: number) => string): string {
-  return value === null ? dash : fmt(value)
-}
-
-/** Planilla diaria estilo Excel: agrupada por máquina/maquinista, con acumulado del mes y promedio mensual por máquina. */
-function buildDetailedSheetHtml(date: string): string {
+/** Planilla diaria estilo Excel (PDF real): agrupada por máquina/maquinista, con acumulado del mes y promedio mensual. */
+function buildDetailedSheetPdf(date: string): jsPDF {
   const rows = getDetailedSheetRows(date)
   const monthStart = `${date.slice(0, 7)}-01`
   const monthly = getDetailedSheetMonthly(monthStart, date)
 
-  const dailyRows = rows
-    .map((r) => {
+  const doc = new jsPDF({ unit: 'mm', format: 'a3', orientation: 'landscape' })
+  let y = addPdfHeader(doc, `PLANILLA DETALLADA — ${formatDateLong(date)}`, `Generado el ${new Date().toLocaleString('es-AR')}`)
+
+  doc.setFontSize(10)
+  doc.setFont('helvetica', 'bold')
+  doc.setTextColor(...COLOR_BRAND)
+  doc.text('Detalle del día por máquina y maquinista', 12, y)
+  y += 3
+
+  autoTable(doc, {
+    startY: y,
+    head: [['Máquina', 'Maquinista', 'Hs. Prod', 'Gp/turno', 'Gp/hora', 'm²/turno', 'm²/hora', 'Cambio OT', 'Gp/OT', 'm²/gp', 'Tiempo parado', 'Indisp % Tot']],
+    body: rows.map((r) => {
       const machine = getMachineById(r.machineId)!
       const operator = getOperatorById(r.operatorId)
-      const rate = machine.unit === 'golpes' ? r.golpesHora ?? 0 : r.m2Hora
-      const ratio = rate / Math.max(machine.nominalSpeed, 0.0001)
-      return `<tr>
-        <td>${escapeHtml(machine.name)}</td>
-        <td>${escapeHtml(operator?.name ?? r.operatorId)}</td>
-        <td>${escapeHtml(formatNumber(r.hoursProd, 1))}</td>
-        <td>${fmtOrDash(r.golpesTurno, (v) => formatNumber(v, 0))}</td>
-        <td style="color:${rateColor(ratio)};font-weight:bold;">${fmtOrDash(r.golpesHora, (v) => formatNumber(v, 0))}</td>
-        <td>${escapeHtml(formatNumber(r.m2Turno, 0))}</td>
-        <td style="color:${rateColor(ratio)};font-weight:bold;">${escapeHtml(formatNumber(r.m2Hora, 2))}</td>
-        <td>${r.otChanges}</td>
-        <td>${fmtOrDash(r.golpesPorOt, (v) => formatNumber(v, 0))}</td>
-        <td>${fmtOrDash(r.m2PorGolpe, (v) => formatNumber(v, 2))}</td>
-        <td>${escapeHtml(formatNumber(r.tiempoParadoMin, 0))} min</td>
-        <td style="color:${pctColor(r.indisponibilidadPct, 0.15, 0.3)};font-weight:bold;">${escapeHtml(formatPct(r.indisponibilidadPct, 1))}</td>
-      </tr>`
-    })
-    .join('')
+      return [
+        machine.name,
+        operator?.name ?? r.operatorId,
+        formatNumber(r.hoursProd, 1),
+        fmtOrDash(r.golpesTurno, (v) => formatNumber(v, 0)),
+        fmtOrDash(r.golpesHora, (v) => formatNumber(v, 0)),
+        formatNumber(r.m2Turno, 0),
+        formatNumber(r.m2Hora, 2),
+        String(r.otChanges),
+        fmtOrDash(r.golpesPorOt, (v) => formatNumber(v, 0)),
+        fmtOrDash(r.m2PorGolpe, (v) => formatNumber(v, 2)),
+        `${formatNumber(r.tiempoParadoMin, 0)} min`,
+        formatPct(r.indisponibilidadPct, 1),
+      ]
+    }),
+    styles: { fontSize: 7.5, halign: 'right' },
+    columnStyles: { 0: { halign: 'left' }, 1: { halign: 'left' } },
+    headStyles: { fillColor: [243, 244, 246], textColor: [107, 114, 128], fontStyle: 'bold', halign: 'center', fontSize: 6.5 },
+    didParseCell: (hookData) => {
+      if (hookData.section !== 'body') return
+      const r = rows[hookData.row.index]
+      const machine = getMachineById(r.machineId)!
+      if (hookData.column.index === 4 || hookData.column.index === 6) {
+        const rate = machine.unit === 'golpes' ? r.golpesHora ?? 0 : r.m2Hora
+        const ratio = rate / Math.max(machine.nominalSpeed, 0.0001)
+        hookData.cell.styles.textColor = rateColor(ratio)
+        hookData.cell.styles.fontStyle = 'bold'
+      }
+      if (hookData.column.index === 11) {
+        hookData.cell.styles.textColor = pctColor(r.indisponibilidadPct, 0.15, 0.3)
+        hookData.cell.styles.fontStyle = 'bold'
+      }
+    },
+  })
 
-  const monthlyRows = monthly
-    .map((m) => {
-      const machine = getMachineById(m.machineId)!
-      return `<tr>
-        <td>${escapeHtml(machine.name)}</td>
-        <td>${escapeHtml(formatNumber(m.hsTotal, 1))}</td>
-        <td>${fmtOrDash(m.golpesTotal, (v) => formatNumber(v, 0))}</td>
-        <td>${escapeHtml(formatNumber(m.m2Total, 0))}</td>
-        <td>${m.otTotal}</td>
-        <td>${fmtOrDash(m.m2PorGolpe, (v) => formatNumber(v, 2))}</td>
-        <td>${escapeHtml(formatNumber(m.tiempoParadoTotal, 0))} min</td>
-        <td style="color:${pctColor(m.indisponibilidadPct, 0.15, 0.3)};font-weight:bold;">${escapeHtml(formatPct(m.indisponibilidadPct, 1))}</td>
-        <td style="color:${pctColor(m.avgIndisponibilidadPct, 0.15, 0.3)};font-weight:bold;">${escapeHtml(formatPct(m.avgIndisponibilidadPct, 1))}</td>
-        <td>${fmtOrDash(m.avgGolpesTurno, (v) => formatNumber(v, 0))}</td>
-        <td>${escapeHtml(formatNumber(m.avgM2Turno, 0))}</td>
-        <td>${escapeHtml(formatNumber(m.avgM2Hora, 2))}</td>
-      </tr>`
-    })
-    .join('')
+  let y2 = (doc as unknown as { lastAutoTable: { finalY: number } }).lastAutoTable.finalY + 10
+  doc.setFontSize(10)
+  doc.setFont('helvetica', 'bold')
+  doc.setTextColor(...COLOR_BRAND)
+  doc.text('Acumulado del mes y promedio mensual por máquina', 12, y2)
+  y2 += 3
 
-  return `<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8" />
-<title>Planilla Detallada — ${escapeHtml(date)}</title>
-<style>
-  @page { size: A3 landscape; margin: 12mm; }
-  * { box-sizing: border-box; }
-  body { font-family: Arial, Helvetica, sans-serif; color: #1f2937; margin: 0; font-size: 10px; }
-  header { display: flex; align-items: center; gap: 12px; border-bottom: 2px solid #1d4ed8; padding-bottom: 10px; margin-bottom: 12px; }
-  .logo { width: 32px; height: 32px; border-radius: 6px; background: #1e3a8a; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; }
-  h1 { font-size: 16px; margin: 0; }
-  h2 { font-size: 12px; margin: 18px 0 6px; color: #1e4480; }
-  .subtitle { font-size: 11px; color: #6b7280; margin: 2px 0 0; }
-  table { width: 100%; border-collapse: collapse; font-size: 9.5px; }
-  th, td { border: 1px solid #e5e7eb; padding: 4px 6px; text-align: right; white-space: nowrap; }
-  th { background: #f3f4f6; text-transform: uppercase; font-size: 8px; color: #6b7280; text-align: center; }
-  td:first-child, td:nth-child(2), th:first-child, th:nth-child(2) { text-align: left; }
-  footer { margin-top: 16px; font-size: 8px; color: #9ca3af; text-align: center; }
-</style>
-</head>
-<body>
-  <header>
-    <div class="logo">BJP</div>
-    <div>
-      <h1>PLANILLA DETALLADA — ${escapeHtml(formatDateLong(date))}</h1>
-      <p class="subtitle">Generado el ${escapeHtml(new Date().toLocaleString('es-AR'))}</p>
-    </div>
-  </header>
+  autoTable(doc, {
+    startY: y2,
+    head: [
+      ['Máquina', 'Hs', 'Golpes', 'm²', 'OT', 'm²/gp', 'Tiempo parado', 'Indisp % Tot', 'Indisp %', 'Gp/turno', 'm²/turno', 'm²/hora'],
+    ],
+    body: monthly.map((m) => [
+      getMachineById(m.machineId)!.name,
+      formatNumber(m.hsTotal, 1),
+      fmtOrDash(m.golpesTotal, (v) => formatNumber(v, 0)),
+      formatNumber(m.m2Total, 0),
+      String(m.otTotal),
+      fmtOrDash(m.m2PorGolpe, (v) => formatNumber(v, 2)),
+      `${formatNumber(m.tiempoParadoTotal, 0)} min`,
+      formatPct(m.indisponibilidadPct, 1),
+      formatPct(m.avgIndisponibilidadPct, 1),
+      fmtOrDash(m.avgGolpesTurno, (v) => formatNumber(v, 0)),
+      formatNumber(m.avgM2Turno, 0),
+      formatNumber(m.avgM2Hora, 2),
+    ]),
+    styles: { fontSize: 7.5, halign: 'right' },
+    columnStyles: { 0: { halign: 'left' } },
+    headStyles: { fillColor: [243, 244, 246], textColor: [107, 114, 128], fontStyle: 'bold', halign: 'center', fontSize: 6.5 },
+    didParseCell: (hookData) => {
+      if (hookData.section !== 'body') return
+      const m = monthly[hookData.row.index]
+      if (hookData.column.index === 7) {
+        hookData.cell.styles.textColor = pctColor(m.indisponibilidadPct, 0.15, 0.3)
+        hookData.cell.styles.fontStyle = 'bold'
+      }
+      if (hookData.column.index === 8) {
+        hookData.cell.styles.textColor = pctColor(m.avgIndisponibilidadPct, 0.15, 0.3)
+        hookData.cell.styles.fontStyle = 'bold'
+      }
+    },
+  })
 
-  <h2>Detalle del día por máquina y maquinista</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Máquina</th><th>Maquinista</th><th>Hs. Prod</th><th>Gp/turno</th><th>Gp/hora</th>
-        <th>m²/turno</th><th>m²/hora</th><th>Cambio OT</th><th>Gp/OT</th><th>m²/gp</th>
-        <th>Tiempo parado</th><th>Indisp % Tot</th>
-      </tr>
-    </thead>
-    <tbody>${dailyRows}</tbody>
-  </table>
-
-  <h2>Acumulado del mes y promedio mensual por máquina</h2>
-  <table>
-    <thead>
-      <tr>
-        <th rowspan="2">Máquina</th>
-        <th colspan="7">Acumulado del mes</th>
-        <th colspan="4">Promedio mensual</th>
-      </tr>
-      <tr>
-        <th>Hs</th><th>Golpes</th><th>m²</th><th>OT</th><th>m²/gp</th><th>Tiempo parado</th><th>Indisp % Tot</th>
-        <th>Indisp %</th><th>Gp/turno</th><th>m²/turno</th><th>m²/hora</th>
-      </tr>
-    </thead>
-    <tbody>${monthlyRows}</tbody>
-  </table>
-
-  <footer>BJP Industrial Analytics · Reporte generado automáticamente · Total de máquinas: ${allMachines.length}</footer>
-</body>
-</html>`
+  addPdfFooter(doc)
+  return doc
 }
 
 function buildDetailedSheetCsv(date: string): string {
@@ -344,20 +355,10 @@ function buildDetailedSheetCsv(date: string): string {
   return [header, ...body].join('\r\n')
 }
 
-/** Abre una ventana con el reporte formateado y dispara el diálogo de impresión del navegador (permite imprimir o guardar como PDF). */
-function openPrintableReport(data: ReportData): void {
-  const win = window.open('', '_blank', 'width=900,height=1200')
-  if (!win) {
-    throw new Error('El navegador bloqueó la ventana del reporte. Habilitá los pop-ups para este sitio.')
-  }
-  const html = data.reportType === 'planilla_detallada' ? buildDetailedSheetHtml(data.date) : buildReportHtml(data)
-  win.document.open()
-  win.document.write(html)
-  win.document.close()
-  win.focus()
-  win.onload = () => {
-    win.print()
-  }
+/** Genera el PDF con jsPDF y lo descarga directamente (archivo real, no requiere elegir "Guardar como PDF" en un diálogo de impresión). */
+function downloadPdf(filename: string, data: ReportData): void {
+  const doc = data.reportType === 'planilla_detallada' ? buildDetailedSheetPdf(data.date) : buildSimpleReportPdf(data)
+  doc.save(filename)
 }
 
 /** Excel con configuración regional es-AR usa "," como separador decimal, por lo que espera ";" entre columnas. */
@@ -398,10 +399,10 @@ function downloadCsv(filename: string, csv: string): void {
   URL.revokeObjectURL(url)
 }
 
-/** Genera el reporte real: PDF abre el diálogo de impresión del navegador, Excel descarga un CSV. */
+/** Genera el reporte real: PDF descarga un archivo .pdf, Excel descarga un .csv. */
 export function generateReport(format: ReportFormat, filename: string, data: ReportData): void {
   if (format === 'pdf') {
-    openPrintableReport(data)
+    downloadPdf(filename, data)
   } else if (data.reportType === 'planilla_detallada') {
     downloadCsv(filename, buildDetailedSheetCsv(data.date))
   } else {
