@@ -4,16 +4,26 @@ import { useAuth } from '@/context/AuthContext'
 
 const ROLES = ['Jefe de Producción', 'Supervisor de Planta', 'Gerencia', 'Administrador']
 
+// Credenciales de la demo. Se validan en el navegador: sirven para filtrar el acceso
+// casual, no como seguridad real (quedan visibles en el bundle JS).
+const DEMO_USER = 'prueba'
+const DEMO_PASSWORD = '0303456'
+
 export default function LoginPage() {
   const { login } = useAuth()
   const navigate = useNavigate()
   const [name, setName] = useState('')
   const [role, setRole] = useState(ROLES[0])
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    login({ name: name.trim() || 'Usuario Demo', role })
+    if (name.trim().toLowerCase() !== DEMO_USER || password !== DEMO_PASSWORD) {
+      setError('Usuario o contraseña incorrectos.')
+      return
+    }
+    login({ name: 'Prueba', role })
     navigate('/dashboard')
   }
 
@@ -69,12 +79,16 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
             <div>
-              <label className="mb-1 block text-xs font-medium text-brand-900">Nombre</label>
+              <label className="mb-1 block text-xs font-medium text-brand-900">Usuario</label>
               <input
                 type="text"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Ej: Martín Fernández"
+                onChange={(e) => {
+                  setName(e.target.value)
+                  setError('')
+                }}
+                autoComplete="username"
+                placeholder="Usuario"
                 className="w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
               />
             </div>
@@ -99,12 +113,17 @@ export default function LoginPage() {
               <input
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                  setError('')
+                }}
+                autoComplete="current-password"
                 placeholder="••••••••"
                 className="w-full rounded-lg border border-border px-3 py-2.5 text-sm outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500"
               />
-              <p className="mt-1 text-[11px] text-status-idle">Demo: no se valida contraseña real.</p>
             </div>
+
+            {error && <p className="text-sm text-red-600">{error}</p>}
 
             <button
               type="submit"

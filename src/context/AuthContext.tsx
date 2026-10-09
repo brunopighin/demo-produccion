@@ -11,7 +11,8 @@ interface AuthContextValue {
   logout: () => void
 }
 
-const STORAGE_KEY = 'bjp.auth.user'
+// v2: invalida sesiones creadas antes de que se exigiera usuario y contraseña.
+const STORAGE_KEY = 'bjp.auth.user.v2'
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
 
