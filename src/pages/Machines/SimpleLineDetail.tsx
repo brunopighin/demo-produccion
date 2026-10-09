@@ -36,32 +36,34 @@ export default function SimpleLineDetail({ lineId }: { lineId: string }) {
       </div>
 
       <Card title="Detalle por turno" subtitle={date}>
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left text-xs uppercase text-status-idle">
-              <th className="pb-2">Turno</th>
-              <th className="pb-2">Operador</th>
-              {line.metrics.map((metric) => (
-                <th key={metric.key} className="pb-2">
-                  {metric.label}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-border">
-            {shiftRows.map((row) => (
-              <tr key={row.shiftId}>
-                <td className="py-2 font-medium text-brand-900">{row.shiftName}</td>
-                <td className="py-2">{row.operatorName}</td>
+        <div className="-mx-4 overflow-x-auto px-4">
+          <table className="w-full min-w-max text-sm [&_td:not(:last-child)]:pr-4 [&_th:not(:last-child)]:pr-4">
+            <thead>
+              <tr className="text-left text-xs uppercase text-status-idle">
+                <th className="pb-2">Turno</th>
+                <th className="pb-2">Operador</th>
                 {line.metrics.map((metric) => (
-                  <td key={metric.key} className="py-2">
-                    {formatQty(row.values[metric.key] ?? 0, metric.unit)}
-                  </td>
+                  <th key={metric.key} className="pb-2">
+                    {metric.label}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {shiftRows.map((row) => (
+                <tr key={row.shiftId}>
+                  <td className="py-2 font-medium text-brand-900">{row.shiftName}</td>
+                  <td className="py-2">{row.operatorName}</td>
+                  {line.metrics.map((metric) => (
+                    <td key={metric.key} className="py-2">
+                      {formatQty(row.values[metric.key] ?? 0, metric.unit)}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Card>
     </div>
   )

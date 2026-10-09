@@ -3,7 +3,11 @@ import { useAuth } from '@/context/AuthContext'
 import { getAlertsForDate } from '@/services/alertsService'
 import { getLastAvailableDate } from '@/services/productionService'
 
-export default function Topbar() {
+interface TopbarProps {
+  onMenuClick: () => void
+}
+
+export default function Topbar({ onMenuClick }: TopbarProps) {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
   const date = getLastAvailableDate()
@@ -22,13 +26,22 @@ export default function Topbar() {
   }
 
   return (
-    <header className="flex h-16 items-center justify-between border-b border-border bg-surface-alt px-6">
-      <div>
-        <p className="text-sm font-semibold text-brand-900">Planta Central</p>
-        <p className="text-xs text-status-idle capitalize">{formattedDate}</p>
+    <header className="flex h-16 shrink-0 items-center justify-between gap-3 border-b border-border bg-surface-alt px-4 md:px-6">
+      <div className="flex min-w-0 items-center gap-3">
+        <button
+          onClick={onMenuClick}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border text-lg text-brand-900 hover:bg-surface lg:hidden"
+          aria-label="Abrir menú"
+        >
+          ☰
+        </button>
+        <div className="min-w-0">
+          <p className="truncate text-sm font-semibold text-brand-900">Planta Central</p>
+          <p className="truncate text-xs text-status-idle capitalize">{formattedDate}</p>
+        </div>
       </div>
 
-      <div className="flex items-center gap-5">
+      <div className="flex shrink-0 items-center gap-3 md:gap-5">
         <button
           className="relative flex h-9 w-9 items-center justify-center rounded-full border border-border text-brand-700 hover:bg-surface"
           title="Alertas"
@@ -42,7 +55,7 @@ export default function Topbar() {
         </button>
 
         <div className="flex items-center gap-3">
-          <div className="text-right">
+          <div className="hidden text-right sm:block">
             <p className="text-sm font-medium text-brand-900">{user?.name ?? 'Usuario'}</p>
             <p className="text-xs text-status-idle">{user?.role ?? ''}</p>
           </div>

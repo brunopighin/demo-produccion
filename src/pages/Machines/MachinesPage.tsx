@@ -122,28 +122,30 @@ function MachineDetail({ machineId }: { machineId: string }) {
         {downtimeLog.length === 0 ? (
           <p className="text-sm text-status-idle">Sin paradas registradas en el período.</p>
         ) : (
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="text-left text-xs uppercase text-status-idle">
-                <th className="pb-2">Fecha</th>
-                <th className="pb-2">Turno</th>
-                <th className="pb-2">Tipo</th>
-                <th className="pb-2">Motivo</th>
-                <th className="pb-2 text-right">Duración</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              {downtimeLog.map((row, idx) => (
-                <tr key={idx}>
-                  <td className="py-2">{row.date}</td>
-                  <td className="py-2">{row.shiftName}</td>
-                  <td className="py-2 capitalize">{row.type.replace('_', ' ')}</td>
-                  <td className="py-2">{row.reason}</td>
-                  <td className="py-2 text-right">{row.minutes} min</td>
+          <div className="-mx-4 overflow-x-auto px-4">
+            <table className="w-full min-w-max text-sm [&_td:not(:last-child)]:pr-4 [&_th:not(:last-child)]:pr-4">
+              <thead>
+                <tr className="text-left text-xs uppercase text-status-idle">
+                  <th className="pb-2">Fecha</th>
+                  <th className="pb-2">Turno</th>
+                  <th className="pb-2">Tipo</th>
+                  <th className="pb-2">Motivo</th>
+                  <th className="pb-2 text-right">Duración</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {downtimeLog.map((row, idx) => (
+                  <tr key={idx}>
+                    <td className="py-2">{row.date}</td>
+                    <td className="py-2">{row.shiftName}</td>
+                    <td className="py-2 capitalize">{row.type.replace('_', ' ')}</td>
+                    <td className="py-2">{row.reason}</td>
+                    <td className="py-2 text-right">{row.minutes} min</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </Card>
     </div>

@@ -94,7 +94,7 @@ export default function ReportsPage() {
           </label>
         </div>
 
-        <div className="mt-5 flex items-center gap-3">
+        <div className="mt-5 flex flex-wrap items-center gap-3">
           <button
             onClick={() => setShowPreview(true)}
             className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-brand-900 hover:bg-surface"
@@ -158,30 +158,32 @@ export default function ReportsPage() {
       )}
 
       <Card title="Reportes programados">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left text-xs uppercase text-status-idle">
-              <th className="pb-2">Reporte</th>
-              <th className="pb-2">Frecuencia</th>
-              <th className="pb-2">Destinatarios</th>
-              <th className="pb-2">Próxima</th>
-              <th className="pb-2" />
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-border">
-            {scheduledReports.map((s) => (
-              <tr key={s.id}>
-                <td className="py-2 font-medium text-brand-900">
-                  {REPORT_TYPES.find((r) => r.value === s.reportType)?.label}
-                </td>
-                <td className="py-2">{s.frequency}</td>
-                <td className="py-2">{s.recipients}</td>
-                <td className="py-2">{s.nextRun}</td>
-                <td className="py-2 text-right text-brand-700">Editar</td>
+        <div className="-mx-4 overflow-x-auto px-4">
+          <table className="w-full min-w-max text-sm [&_td:not(:last-child)]:pr-4 [&_th:not(:last-child)]:pr-4">
+            <thead>
+              <tr className="text-left text-xs uppercase text-status-idle">
+                <th className="pb-2">Reporte</th>
+                <th className="pb-2">Frecuencia</th>
+                <th className="pb-2">Destinatarios</th>
+                <th className="pb-2">Próxima</th>
+                <th className="pb-2" />
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {scheduledReports.map((s) => (
+                <tr key={s.id}>
+                  <td className="py-2 font-medium text-brand-900">
+                    {REPORT_TYPES.find((r) => r.value === s.reportType)?.label}
+                  </td>
+                  <td className="py-2">{s.frequency}</td>
+                  <td className="py-2">{s.recipients}</td>
+                  <td className="py-2">{s.nextRun}</td>
+                  <td className="py-2 text-right text-brand-700">Editar</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         <button className="mt-3 text-sm font-medium text-brand-700 hover:underline">+ Programar nuevo envío</button>
       </Card>
     </div>

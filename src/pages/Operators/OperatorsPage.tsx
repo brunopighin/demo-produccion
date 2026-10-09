@@ -69,41 +69,43 @@ export default function OperatorsPage() {
           />
         }
       >
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left text-xs uppercase text-status-idle">
-              <th className="pb-2">#</th>
-              <th className="pb-2">Operador</th>
-              <th className="pb-2">Máquina</th>
-              <SortableHeader label="Producción" active={sortKey === 'production'} desc={sortDesc} onClick={() => toggleSort('production')} />
-              <SortableHeader label="Eficiencia" active={sortKey === 'efficiencyPct'} desc={sortDesc} onClick={() => toggleSort('efficiencyPct')} />
-              <SortableHeader label="Setups" active={sortKey === 'setups'} desc={sortDesc} onClick={() => toggleSort('setups')} />
-              <th className="pb-2">Estado</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-border">
-            {filtered.map((r: OperatorKpis, idx: number) => (
-              <tr
-                key={r.operatorId}
-                onClick={() => setSelectedId(r.operatorId)}
-                className={clsx(
-                  'cursor-pointer hover:bg-surface',
-                  selectedId === r.operatorId && 'bg-brand-50',
-                )}
-              >
-                <td className="py-2">{idx + 1}</td>
-                <td className="py-2 font-medium text-brand-900">{operatorName(r.operatorId)}</td>
-                <td className="py-2 text-status-idle">{operatorMachine(r.operatorId)}</td>
-                <td className="py-2">{formatQty(r.production, r.unit)}</td>
-                <td className="py-2">{formatPct(r.efficiencyPct, 0)}</td>
-                <td className="py-2">{r.setups}</td>
-                <td className="py-2">
-                  <StatusBadge status={r.status} />
-                </td>
+        <div className="-mx-4 overflow-x-auto px-4">
+          <table className="w-full min-w-max text-sm [&_td:not(:last-child)]:pr-4 [&_th:not(:last-child)]:pr-4">
+            <thead>
+              <tr className="text-left text-xs uppercase text-status-idle">
+                <th className="pb-2">#</th>
+                <th className="pb-2">Operador</th>
+                <th className="pb-2">Máquina</th>
+                <SortableHeader label="Producción" active={sortKey === 'production'} desc={sortDesc} onClick={() => toggleSort('production')} />
+                <SortableHeader label="Eficiencia" active={sortKey === 'efficiencyPct'} desc={sortDesc} onClick={() => toggleSort('efficiencyPct')} />
+                <SortableHeader label="Setups" active={sortKey === 'setups'} desc={sortDesc} onClick={() => toggleSort('setups')} />
+                <th className="pb-2">Estado</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {filtered.map((r: OperatorKpis, idx: number) => (
+                <tr
+                  key={r.operatorId}
+                  onClick={() => setSelectedId(r.operatorId)}
+                  className={clsx(
+                    'cursor-pointer hover:bg-surface',
+                    selectedId === r.operatorId && 'bg-brand-50',
+                  )}
+                >
+                  <td className="py-2">{idx + 1}</td>
+                  <td className="py-2 font-medium text-brand-900">{operatorName(r.operatorId)}</td>
+                  <td className="py-2 text-status-idle">{operatorMachine(r.operatorId)}</td>
+                  <td className="py-2">{formatQty(r.production, r.unit)}</td>
+                  <td className="py-2">{formatPct(r.efficiencyPct, 0)}</td>
+                  <td className="py-2">{r.setups}</td>
+                  <td className="py-2">
+                    <StatusBadge status={r.status} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         {filtered.length === 0 && <p className="py-4 text-center text-sm text-status-idle">Sin resultados.</p>}
       </Card>
 

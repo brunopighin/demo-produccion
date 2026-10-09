@@ -48,35 +48,37 @@ export default function ImportsPage() {
       </div>
 
       <Card title="Historial de importaciones">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left text-xs uppercase text-status-idle">
-              <th className="pb-2">Fecha</th>
-              <th className="pb-2">Archivo</th>
-              <th className="pb-2">Fuente</th>
-              <th className="pb-2">Filas</th>
-              <th className="pb-2">Estado</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-border">
-            {logs.map((log) => (
-              <tr key={log.id}>
-                <td className="py-2">{log.importedAt.replace('T', ' ')}</td>
-                <td className="py-2 font-medium text-brand-900">{log.filename}</td>
-                <td className="py-2">{log.source === 'kiwi_plant' ? 'Kiwi Plant' : 'Kiwi Map'}</td>
-                <td className="py-2">
-                  {log.rowsTotal - log.rowsError} / {log.rowsTotal}
-                </td>
-                <td className="py-2">
-                  <span className="inline-flex items-center gap-1.5">
-                    <span className={clsx('h-1.5 w-1.5 rounded-full', STATUS_DOT[log.status])} />
-                    {STATUS_LABEL[log.status]}
-                  </span>
-                </td>
+        <div className="-mx-4 overflow-x-auto px-4">
+          <table className="w-full min-w-max text-sm [&_td:not(:last-child)]:pr-4 [&_th:not(:last-child)]:pr-4">
+            <thead>
+              <tr className="text-left text-xs uppercase text-status-idle">
+                <th className="pb-2">Fecha</th>
+                <th className="pb-2">Archivo</th>
+                <th className="pb-2">Fuente</th>
+                <th className="pb-2">Filas</th>
+                <th className="pb-2">Estado</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-border">
+              {logs.map((log) => (
+                <tr key={log.id}>
+                  <td className="py-2">{log.importedAt.replace('T', ' ')}</td>
+                  <td className="py-2 font-medium text-brand-900">{log.filename}</td>
+                  <td className="py-2">{log.source === 'kiwi_plant' ? 'Kiwi Plant' : 'Kiwi Map'}</td>
+                  <td className="py-2">
+                    {log.rowsTotal - log.rowsError} / {log.rowsTotal}
+                  </td>
+                  <td className="py-2">
+                    <span className="inline-flex items-center gap-1.5">
+                      <span className={clsx('h-1.5 w-1.5 rounded-full', STATUS_DOT[log.status])} />
+                      {STATUS_LABEL[log.status]}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Card>
     </div>
   )

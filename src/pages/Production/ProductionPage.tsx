@@ -25,7 +25,7 @@ export default function ProductionPage() {
         <p className="text-sm text-status-idle">Detalle diario y consolidado mensual.</p>
       </div>
 
-      <div className="flex gap-2 border-b border-border pb-3">
+      <div className="flex flex-wrap gap-2 border-b border-border pb-3">
         <TabButton active={tab === 'diaria'} onClick={() => setTab('diaria')}>
           Producción Diaria
         </TabButton>
@@ -94,41 +94,43 @@ function DailyProduction() {
         </select>
       }
     >
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="text-left text-xs uppercase text-status-idle">
-            <th className="pb-2">Máquina</th>
-            <th className="pb-2">Turno</th>
-            <th className="pb-2">Operador</th>
-            <th className="pb-2">Producción</th>
-            <th className="pb-2">Setup</th>
-            <th className="pb-2">OEE</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-border">
-          {rows.map((r) => (
-            <tr key={r.id}>
-              <td className="py-2 font-medium text-brand-900">{r.machine}</td>
-              <td className="py-2">{r.shift}</td>
-              <td className="py-2">{r.operator}</td>
-              <td className="py-2">{formatQty(r.production, r.unit)}</td>
-              <td className="py-2">{r.setupMin} min</td>
-              <td className="py-2">{formatPct(r.oee, 1)}</td>
+      <div className="-mx-4 overflow-x-auto px-4">
+        <table className="w-full min-w-max text-sm [&_td:not(:last-child)]:pr-4 [&_th:not(:last-child)]:pr-4">
+          <thead>
+            <tr className="text-left text-xs uppercase text-status-idle">
+              <th className="pb-2">Máquina</th>
+              <th className="pb-2">Turno</th>
+              <th className="pb-2">Operador</th>
+              <th className="pb-2">Producción</th>
+              <th className="pb-2">Setup</th>
+              <th className="pb-2">OEE</th>
             </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr className="border-t border-border text-sm font-semibold text-brand-900">
-            <td className="pt-2" colSpan={3}>
-              Total del día
-            </td>
-            <td className="pt-2">
-              {formatQty(totalM2, 'm2')} · {formatQty(totalGolpes, 'golpes')}
-            </td>
-            <td className="pt-2" colSpan={3} />
-          </tr>
-        </tfoot>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-border">
+            {rows.map((r) => (
+              <tr key={r.id}>
+                <td className="py-2 font-medium text-brand-900">{r.machine}</td>
+                <td className="py-2">{r.shift}</td>
+                <td className="py-2">{r.operator}</td>
+                <td className="py-2">{formatQty(r.production, r.unit)}</td>
+                <td className="py-2">{r.setupMin} min</td>
+                <td className="py-2">{formatPct(r.oee, 1)}</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr className="border-t border-border text-sm font-semibold text-brand-900">
+              <td className="pt-2" colSpan={3}>
+                Total del día
+              </td>
+              <td className="pt-2">
+                {formatQty(totalM2, 'm2')} · {formatQty(totalGolpes, 'golpes')}
+              </td>
+              <td className="pt-2" colSpan={3} />
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </Card>
   )
 }

@@ -87,57 +87,61 @@ export default function MonthlyPage() {
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <Card title="Resumen mensual por máquina">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="text-left text-xs uppercase text-status-idle">
-                <th className="pb-2">Máquina</th>
-                <th className="pb-2">Producción</th>
-                <th className="pb-2">OEE</th>
-                <th className="pb-2">Setup</th>
-                <th className="pb-2">Estado</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              {machineKpis.map((k) => (
-                <tr key={k.machineId}>
-                  <td className="py-2 font-medium text-brand-900">{getMachineById(k.machineId)?.name}</td>
-                  <td className="py-2">{formatQty(k.production, k.unit)}</td>
-                  <td className="py-2">{formatPct(k.oee, 1)}</td>
-                  <td className="py-2">{formatMinutesAsHours(k.setupMinutes)}</td>
-                  <td className="py-2">
-                    <StatusBadge status={k.status} />
-                  </td>
+          <div className="-mx-4 overflow-x-auto px-4">
+            <table className="w-full min-w-max text-sm [&_td:not(:last-child)]:pr-4 [&_th:not(:last-child)]:pr-4">
+              <thead>
+                <tr className="text-left text-xs uppercase text-status-idle">
+                  <th className="pb-2">Máquina</th>
+                  <th className="pb-2">Producción</th>
+                  <th className="pb-2">OEE</th>
+                  <th className="pb-2">Setup</th>
+                  <th className="pb-2">Estado</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {machineKpis.map((k) => (
+                  <tr key={k.machineId}>
+                    <td className="py-2 font-medium text-brand-900">{getMachineById(k.machineId)?.name}</td>
+                    <td className="py-2">{formatQty(k.production, k.unit)}</td>
+                    <td className="py-2">{formatPct(k.oee, 1)}</td>
+                    <td className="py-2">{formatMinutesAsHours(k.setupMinutes)}</td>
+                    <td className="py-2">
+                      <StatusBadge status={k.status} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </Card>
 
         <Card title="Ranking mensual de operadores">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="text-left text-xs uppercase text-status-idle">
-                <th className="pb-2">#</th>
-                <th className="pb-2">Operador</th>
-                <th className="pb-2">Producción</th>
-                <th className="pb-2">Eficiencia</th>
-                <th className="pb-2">Estado</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              {operatorRanking.slice(0, 8).map((r, idx) => (
-                <tr key={r.operatorId}>
-                  <td className="py-2">{idx + 1}</td>
-                  <td className="py-2 font-medium text-brand-900">{getOperatorById(r.operatorId)?.name}</td>
-                  <td className="py-2">{formatQty(r.production, r.unit)}</td>
-                  <td className="py-2">{formatPct(r.efficiencyPct, 0)}</td>
-                  <td className="py-2">
-                    <StatusBadge status={r.status} />
-                  </td>
+          <div className="-mx-4 overflow-x-auto px-4">
+            <table className="w-full min-w-max text-sm [&_td:not(:last-child)]:pr-4 [&_th:not(:last-child)]:pr-4">
+              <thead>
+                <tr className="text-left text-xs uppercase text-status-idle">
+                  <th className="pb-2">#</th>
+                  <th className="pb-2">Operador</th>
+                  <th className="pb-2">Producción</th>
+                  <th className="pb-2">Eficiencia</th>
+                  <th className="pb-2">Estado</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {operatorRanking.slice(0, 8).map((r, idx) => (
+                  <tr key={r.operatorId}>
+                    <td className="py-2">{idx + 1}</td>
+                    <td className="py-2 font-medium text-brand-900">{getOperatorById(r.operatorId)?.name}</td>
+                    <td className="py-2">{formatQty(r.production, r.unit)}</td>
+                    <td className="py-2">{formatPct(r.efficiencyPct, 0)}</td>
+                    <td className="py-2">
+                      <StatusBadge status={r.status} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </Card>
       </div>
     </div>

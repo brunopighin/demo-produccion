@@ -11,9 +11,9 @@ interface CardProps {
 
 export default function Card({ title, subtitle, action, children, className }: CardProps) {
   return (
-    <div className={clsx('rounded-xl border border-border bg-surface-alt p-4 shadow-sm', className)}>
+    <div className={clsx('min-w-0 rounded-xl border border-border bg-surface-alt p-4 shadow-sm', className)}>
       {(title || action) && (
-        <div className="mb-3 flex items-start justify-between">
+        <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
           <div>
             {title && <h3 className="text-sm font-semibold text-brand-900">{title}</h3>}
             {subtitle && <p className="text-xs text-status-idle">{subtitle}</p>}

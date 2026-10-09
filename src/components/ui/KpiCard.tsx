@@ -29,15 +29,15 @@ export default function KpiCard({ label, value, status = 'sin_datos', delta, del
   return (
     <div
       className={clsx(
-        'rounded-xl border border-border border-l-4 bg-surface-alt p-4 shadow-sm',
+        'min-w-0 rounded-xl border border-border border-l-4 bg-surface-alt p-3 shadow-sm sm:p-4',
         STATUS_BAR[status],
       )}
     >
-      <p className="text-xs font-medium uppercase tracking-wide text-status-idle">{label}</p>
-      <div className="mt-2 flex items-end justify-between">
-        <p className="text-2xl font-semibold text-brand-900">{value}</p>
+      <p className="text-[11px] font-medium uppercase tracking-wide text-status-idle sm:text-xs">{label}</p>
+      <div className="mt-2 flex items-end justify-between gap-2">
+        <p className="text-lg font-semibold text-brand-900 sm:text-2xl">{value}</p>
         {sparkline && sparkline.length > 1 && (
-          <div className="h-8 w-16">
+          <div className="hidden h-8 w-16 shrink-0 sm:block">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={sparkline.map((v) => ({ v }))}>
                 <Line type="monotone" dataKey="v" stroke={SPARK_COLOR[status]} strokeWidth={2} dot={false} />
