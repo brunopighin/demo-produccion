@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
+import { createContext, useContext, useState, type ReactNode } from 'react'
 
 export interface AuthUser {
   name: string
@@ -16,12 +16,16 @@ const STORAGE_KEY = 'bjp.auth.user'
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<AuthUser | null>(null)
-
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    if (stored) setUser(JSON.parse(stored))
-  }, [])
+  // Lectura sincrónica: si se leyera en un useEffect, el primer render tendría user=null
+  // y AppLayout redirigiría a /login al recargar cualquier ruta protegida.
+  const [user, setUser] = useState<AuthUser | null>(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      return stored ? (JSON.parse(stored) as AuthUser) : null
+    } catch {
+      return null
+    }
+  })
 
   function login(nextUser: AuthUser) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(nextUser))
