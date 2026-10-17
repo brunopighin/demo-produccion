@@ -38,6 +38,10 @@ export function getLastAvailableDate(): string {
   return productionRecords[productionRecords.length - 1].date
 }
 
+export function getFirstAvailableDate(): string {
+  return productionRecords[0].date
+}
+
 interface RecordFilter {
   date?: string
   from?: string
