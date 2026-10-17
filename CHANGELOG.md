@@ -1,5 +1,11 @@
 # Historial de cambios
 
+## 2026-10-17 — Fuera de Netlify, solo Railway
+
+- La demo se publica únicamente en Railway (https://bjp-industrial-analytics-production.up.railway.app), conectada a GitHub: cada push a `main` se publica solo. Ya estaba así desde el 09/10; Netlify había quedado como una copia vieja que se actualizaba a mano.
+- Se eliminó el sitio de Netlify (bjpindustrial.netlify.app) y el archivo `netlify.toml`.
+- Antes de eliminar Netlify se corrieron las 40 verificaciones de la pantalla de Reportes contra la URL de Railway, y pasaron todas.
+
 ## 2026-10-17 — Publicado en Netlify
 
 - El sitio no se actualizaba desde el 26/06: Netlify no está conectado a GitHub y los deploys se hacen a mano. Ahora se publicó todo lo de octubre: login, versión para celular, hora de los PDF y la pantalla de Reportes completa.

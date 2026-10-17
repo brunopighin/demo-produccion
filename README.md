@@ -10,7 +10,7 @@ Demo web de indicadores de producción para una planta de cartón corrugado: das
 - Tailwind CSS 4
 - Recharts (gráficos en pantalla)
 - jsPDF + jspdf-autotable (PDF generados en el navegador, sin diálogo de impresión)
-- Deploy estático en Netlify (`netlify.toml`, con redirect para que funcionen las rutas de la SPA)
+- Deploy en Railway, automático desde GitHub
 
 ## Uso local
 
@@ -85,18 +85,17 @@ La hora de "Generado el…" siempre está en hora de Argentina (24 h), sin impor
 
 Se pueden crear, editar y eliminar envíos diarios, semanales o mensuales, con destinatarios validados y cálculo del próximo envío. **Como la demo no tiene servidor, se guardan en el navegador (`localStorage`) y no se envían mails.** Para enviarlos de verdad hace falta un backend con un servidor de correo que genere el reporte con `buildReportModel` y lo mande a la hora programada.
 
-## Publicar en Netlify
+## Publicación (Railway)
 
-Sitio: https://bjpindustrial.netlify.app
+Sitio: https://bjp-industrial-analytics-production.up.railway.app
 
-**El sitio no está conectado a GitHub:** hacer push no lo actualiza. Para publicar:
+Railway, proyecto `bjp-industrial-analytics`, servicio `bjp-industrial-analytics`, conectado al repo de GitHub `brunopighin/demo-produccion` (rama `main`). **Cada push a `main` se publica solo**: Railway hace `npm run build` y sirve `dist/` como sitio estático, con las rutas de la SPA (`/reportes`, `/dashboard`…) resueltas a `index.html`.
+
+Para ver el estado del último deploy:
 
 ```bash
-npm run build
-npx netlify-cli deploy --prod --dir dist
+railway deployment list --project bjp-industrial-analytics --service bjp-industrial-analytics
 ```
-
-(El sitio ya está vinculado en `.netlify/state.json`.)
 
 ## Historial de cambios
 
