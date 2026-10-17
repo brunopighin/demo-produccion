@@ -1,5 +1,11 @@
 # Historial de cambios
 
+## 2026-10-17 — Publicado en Netlify
+
+- El sitio no se actualizaba desde el 26/06: Netlify no está conectado a GitHub y los deploys se hacen a mano. Ahora se publicó todo lo de octubre: login, versión para celular, hora de los PDF y la pantalla de Reportes completa.
+- Se repitieron las 40 verificaciones de la pantalla de Reportes contra https://bjpindustrial.netlify.app y pasaron todas.
+- El README explica cómo publicar.
+
 ## 2026-10-17 — Pantalla de Reportes completa
 
 **Por qué:** la vista previa era un recuadro de relleno. Además, el período elegido se ignoraba, 6 de los 7 tipos de reporte generaban el mismo PDF y los botones de reportes programados no hacían nada.

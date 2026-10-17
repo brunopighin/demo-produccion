@@ -85,6 +85,19 @@ La hora de "Generado el…" siempre está en hora de Argentina (24 h), sin impor
 
 Se pueden crear, editar y eliminar envíos diarios, semanales o mensuales, con destinatarios validados y cálculo del próximo envío. **Como la demo no tiene servidor, se guardan en el navegador (`localStorage`) y no se envían mails.** Para enviarlos de verdad hace falta un backend con un servidor de correo que genere el reporte con `buildReportModel` y lo mande a la hora programada.
 
+## Publicar en Netlify
+
+Sitio: https://bjpindustrial.netlify.app
+
+**El sitio no está conectado a GitHub:** hacer push no lo actualiza. Para publicar:
+
+```bash
+npm run build
+npx netlify-cli deploy --prod --dir dist
+```
+
+(El sitio ya está vinculado en `.netlify/state.json`.)
+
 ## Historial de cambios
 
 Ver [CHANGELOG.md](CHANGELOG.md).
