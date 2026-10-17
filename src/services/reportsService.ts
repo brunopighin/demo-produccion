@@ -1,7 +1,7 @@
 import jsPDF from 'jspdf'
 import autoTable from 'jspdf-autotable'
 import type { Machine, MachineKpis, DailySummary } from '@/types'
-import { formatDateLong, formatM2, formatGolpes, formatNumber, formatPct, formatQty } from '@/utils/format'
+import { formatDateLong, formatM2, formatGolpes, formatNowAR, formatNumber, formatPct, formatQty } from '@/utils/format'
 import { getDetailedSheetMonthly, getDetailedSheetRows, getMachineById, getOperatorById } from './productionService'
 
 export type ReportType =
@@ -104,7 +104,7 @@ function buildSimpleReportPdf(data: ReportData): jsPDF {
   const label = REPORT_TYPES.find((r) => r.value === reportType)?.label ?? ''
   const doc = new jsPDF({ unit: 'mm', format: 'a4' })
   const pageWidth = doc.internal.pageSize.getWidth()
-  let y = addPdfHeader(doc, `${label.toUpperCase()} — ${formatDateLong(date)}`, `Máquinas incluidas: ${machines.length} · Generado el ${new Date().toLocaleString('es-AR')}`)
+  let y = addPdfHeader(doc, `${label.toUpperCase()} — ${formatDateLong(date)}`, `Máquinas incluidas: ${machines.length} · Generado el ${formatNowAR()}`)
 
   const stats: [string, string][] = [
     [formatM2(summary.productionM2), 'Producción Corrugadora'],
@@ -233,7 +233,7 @@ function buildDetailedSheetPdf(date: string): jsPDF {
   const monthly = getDetailedSheetMonthly(monthStart, date)
 
   const doc = new jsPDF({ unit: 'mm', format: 'a3', orientation: 'landscape' })
-  let y = addPdfHeader(doc, `PLANILLA DETALLADA — ${formatDateLong(date)}`, `Generado el ${new Date().toLocaleString('es-AR')}`)
+  let y = addPdfHeader(doc, `PLANILLA DETALLADA — ${formatDateLong(date)}`, `Generado el ${formatNowAR()}`)
 
   doc.setFontSize(10)
   doc.setFont('helvetica', 'bold')

@@ -43,3 +43,16 @@ export function formatDateLong(iso: string): string {
 export function formatDateShort(iso: string): string {
   return new Date(`${iso}T00:00:00`).toLocaleDateString('es-AR', { day: '2-digit', month: '2-digit' })
 }
+
+// Fixed to Argentina time so the stamp doesn't depend on the device/server timezone.
+export function formatNowAR(): string {
+  return new Date().toLocaleString('es-AR', {
+    timeZone: 'America/Argentina/Buenos_Aires',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  })
+}
