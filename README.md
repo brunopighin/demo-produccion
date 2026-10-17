@@ -2,7 +2,7 @@
 
 Demo web de indicadores de producción para una planta de cartón corrugado: dashboard, KPIs por máquina y por operador, objetivos, alertas y reportes descargables en PDF y Excel.
 
-> **Datos simulados.** No hay backend: toda la información sale de archivos JSON en `src/data/`, generados con un script. El login es de demostración (usuario y contraseña definidos en `src/pages/Login/LoginPage.tsx`).
+> **Datos simulados + importados.** No hay backend: la información de ejemplo sale de archivos JSON en `src/data/`, generados con un script. Lo que se sube desde Importaciones se suma a esos datos y se guarda en el navegador (ver "Importación de datos"). El login es de demostración (usuario y contraseña definidos en `src/pages/Login/LoginPage.tsx`).
 
 ## Tecnologías
 
@@ -31,7 +31,7 @@ npm run generate:data  # regenera los JSON de producción simulada
 | `/produccion` | Producción | Detalle de producción por turno y máquina. |
 | `/maquinas` | Máquinas | KPIs por máquina y líneas simples (Picadero, Flejadora). |
 | `/operadores` | Operadores | Ranking y evolución por maquinista. |
-| `/importaciones` | Importaciones | Historial de archivos importados. |
+| `/importaciones` | Importaciones | Subida de la planilla de producción (.xlsx o .csv) e historial de importaciones. |
 | `/reportes` | Reportes | Generación de reportes PDF/Excel con vista previa, y envíos programados. |
 | `/configuracion` | Configuración | Objetivos y umbrales. |
 
@@ -45,6 +45,9 @@ src/
     productionService.ts       Filtros y cálculo de KPIs (OEE, disponibilidad, rendimiento, cumplimiento)
     kpiCalculations.ts         Fórmulas base
     simpleLineService.ts       Líneas simples (Picadero: fardos/rótulos, Flejadora: bultos)
+    importsService.ts          Plantilla, validación y guardado de la planilla importada
+    spreadsheetReader.ts       Lectura de .xlsx y .csv sin librerías externas
+    importedDataStore.ts       Datos importados en localStorage
     reportModel.ts             Contenido de cada tipo de reporte (ver "Reportes")
     reportsService.ts          Dibuja el PDF y arma el Excel a partir del modelo
     scheduledReportsService.ts Envíos programados (guardados en el navegador)
@@ -54,6 +57,34 @@ src/
   utils/format.ts  Formato de números, fechas y horas (es-AR)
 scripts/generate-production-data.cjs   Generador de datos simulados
 ```
+
+## Importación de datos
+
+Desde **Importaciones** se sube una planilla con **una fila por máquina, fecha y turno**. El botón "Descargar plantilla" baja un CSV con los encabezados y dos filas de ejemplo; se completa en Excel y se puede subir como `.xlsx` o `.csv`.
+
+| Columna | Obligatoria | Detalle |
+|---|---|---|
+| Fecha | sí | dd/mm/aaaa (también acepta aaaa-mm-dd y fechas de Excel). No puede ser futura. |
+| Máquina | sí | Código (CORR, HBL, DRO, MINI1, MINI2, PACIFIC, WARD11500) o nombre. |
+| Turno | sí | Mañana, Tarde o Noche (también 1/2/3 o M/T/N). |
+| Operario | sí | Código (OP01…) o nombre. |
+| Producido | sí | m² en Corrugadora, HBL y DRO; golpes en el resto. |
+| Scrap | no (0) | Misma unidad que Producido. |
+| Minutos disponibles | no (480) | Tiempo planificado del turno. |
+| Minutos setup | no (0) | Cambios de OT, formato y ajustes. |
+| Cambios de OT | no (0) | Cantidad. |
+| Minutos parada no programada | no (0) | |
+| Minutos mantenimiento | no (0) | |
+
+Cómo funciona:
+
+- El orden de las columnas no importa: se reconocen por el encabezado. Puede haber filas de título arriba de los encabezados; las filas vacías se ignoran. Los nombres se comparan sin importar mayúsculas ni acentos.
+- Los números aceptan formato argentino (`180.500`, `38,5`) o con punto decimal. El CSV puede venir con `;`, `,` o tabulación, en UTF-8 o en Windows-1252 (como lo guarda Excel en español).
+- Antes de guardar se muestra una **revisión**: filas válidas, período, cuántos registros existentes se reemplazan y el detalle de cada fila con error (número de fila como en Excel y motivo). Se valida: fecha inexistente o futura, máquina/turno/operario desconocidos, números inválidos o negativos, paradas que superan los minutos disponibles, scrap mayor a lo producido, cambios de OT sin minutos de setup y filas repetidas dentro del archivo.
+- Al confirmar se importan solo las filas válidas. Un registro con la misma fecha, máquina y turno que uno existente lo **reemplaza**.
+- Lo importado se ve enseguida en todas las pantallas (Dashboard, Producción, Máquinas, Operadores, Reportes), y el último día pasa a ser el más reciente con datos.
+- **Se guarda en el navegador (`localStorage`)**: solo se ve en ese equipo y navegador, y se pierde si se borran los datos del sitio o en modo incógnito. "Borrar datos importados" vuelve a los datos de ejemplo. Para compartir los datos entre usuarios haría falta un backend con base de datos.
+- `.xls` (Excel 97-2003) no se puede leer: hay que guardarlo como `.xlsx` o CSV. Límite: 10 MB.
 
 ## Reportes
 

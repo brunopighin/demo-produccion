@@ -56,3 +56,8 @@ export function formatNowAR(): string {
     hour12: false,
   })
 }
+
+/** Fecha y hora actual de Argentina (UTC−3, sin horario de verano) como "aaaa-mm-ddThh:mm:ss". */
+export function nowIsoAR(): string {
+  return new Date(Date.now() - 3 * 3600000).toISOString().slice(0, 19)
+}

@@ -18,13 +18,25 @@ import type {
   PeriodType,
 } from '@/types'
 import { availabilityOf, m2Of, oeeOf, otChangesOf, performanceOf, statusFromThreshold, sum } from './kpiCalculations'
+import { loadImported, recordKey } from './importedDataStore'
 
 export const machines = machinesJson as Machine[]
 export const operators = operatorsJson as Operator[]
 export const shifts = shiftsJson as Shift[]
 export const objectives = objectivesJson as Objective[]
 export const alertThresholds = alertThresholdsJson as AlertThreshold[]
-export const productionRecords = productionRecordsJson as ProductionRecord[]
+/** Datos de ejemplo + lo importado en este navegador, ordenado por fecha (varias funciones lo asumen). */
+export const productionRecords: ProductionRecord[] = [...(productionRecordsJson as ProductionRecord[])]
+mergeRecords(loadImported().records)
+
+/** Agrega registros importados: reemplazan a los existentes del mismo día, máquina y turno. */
+export function mergeRecords(records: ProductionRecord[]): void {
+  if (!records.length) return
+  const keys = new Set(records.map(recordKey))
+  const kept = productionRecords.filter((r) => !keys.has(recordKey(r)))
+  productionRecords.splice(0, productionRecords.length, ...kept, ...records)
+  productionRecords.sort((a, b) => a.date.localeCompare(b.date) || a.machineId.localeCompare(b.machineId) || a.shiftId.localeCompare(b.shiftId))
+}
 
 export function getMachineById(id: string): Machine | undefined {
   return machines.find((m) => m.id === id)

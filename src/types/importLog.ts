@@ -1,4 +1,4 @@
-export type ImportSource = 'kiwi_plant' | 'kiwi_map'
+export type ImportSource = 'kiwi_plant' | 'kiwi_map' | 'planilla'
 export type ImportStatus = 'ok' | 'warning' | 'error'
 
 export interface ImportLogEntry {

@@ -1,5 +1,30 @@
 # Historial de cambios
 
+## 2026-10-17 — Importación de planillas real
+
+**Por qué:** la pantalla de Importaciones era una simulación. El botón "Subir Reporte" no abría ningún archivo: esperaba 2 segundos y mostraba "procesado correctamente". El historial también era de ejemplo.
+
+**Cambios:**
+- Subida real de archivos `.xlsx` y `.csv`, con botón o arrastrando el archivo (`src/pages/Imports/ImportsPage.tsx`).
+- Plantilla propia descargable: una fila por máquina, fecha y turno. Se eligió plantilla propia porque no hay exportaciones reales de Kiwi Plant/Kiwi Map para copiar su formato.
+- Lector de planillas sin dependencias (`src/services/spreadsheetReader.ts`): lee `.xlsx` (zip + XML con `DecompressionStream`/`DOMParser`) y CSV (`;`/`,`/tab, UTF-8 o Windows-1252).
+- Validación fila por fila, con revisión antes de confirmar (`src/services/importsService.ts`). Ver el README.
+- Lo importado se suma a los datos de ejemplo, reemplazando los registros de la misma fecha, máquina y turno, y aparece en todas las pantallas (`mergeRecords` en `productionService.ts`).
+- Guardado en el navegador (`src/services/importedDataStore.ts`), con el historial real de importaciones y la opción "Borrar datos importados".
+- El historial muestra la fecha como dd/mm/aaaa hh:mm, y las importaciones de ejemplo aparecen como "(ejemplo)".
+
+**Cómo se probó:** con Chrome en modo automático, subiendo archivos reales (38 verificaciones, sin errores en consola):
+- Plantilla descargada y vuelta a subir.
+- `.xlsx` generado con openpyxl (título arriba de los encabezados y fechas de Excel): 21 filas.
+- `.xlsx` con 9 tipos de error, cada uno detectado con su fila y motivo.
+- CSV guardado como Excel en español (Windows-1252, `180.500`, `38,5`).
+- Archivo sin columnas obligatorias y archivo que no es planilla.
+- Los datos importados llegan al Dashboard y a Reportes (Corrugadora del 26/06 = 511.500 m², la suma importada).
+- Persisten al recargar y "Borrar datos importados" vuelve a los datos de ejemplo.
+- Vista en celular.
+
+También se repitieron las 40 verificaciones de Reportes. `tsc -b`, `oxlint` y `vite build` sin errores.
+
 ## 2026-10-17 — Fuera de Netlify, solo Railway
 
 - La demo se publica únicamente en Railway (https://bjp-industrial-analytics-production.up.railway.app), conectada a GitHub: cada push a `main` se publica solo. Ya estaba así desde el 09/10; Netlify había quedado como una copia vieja que se actualizaba a mano.
